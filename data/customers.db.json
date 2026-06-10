@@ -1,0 +1,69 @@
+[
+  {
+    "id": "cust_demo_verified",
+    "name": "Ahmad Dahlan",
+    "email": "ahmad@example.com",
+    "phone": "081211112222",
+    "password": "ahmad123",
+    "role": "customer",
+    "kycStatus": "verified",
+    "kycFiles": {
+      "ktp": "ktp_cust_demo_verified.jpg",
+      "selfie": "selfie_cust_demo_verified.jpg"
+    },
+    "createdAt": "2026-05-11T05:41:52.446Z"
+  },
+  {
+    "id": "cust_demo_pending",
+    "name": "Siti Rahma",
+    "email": "siti@example.com",
+    "phone": "081233334444",
+    "password": "siti123",
+    "role": "customer",
+    "kycStatus": "uploaded",
+    "kycFiles": {
+      "ktp": "ktp_cust_demo_pending.jpg",
+      "selfie": "selfie_cust_demo_pending.jpg"
+    },
+    "createdAt": "2026-06-05T05:41:52.447Z"
+  },
+  {
+    "id": "cust_demo_rejected",
+    "name": "Budi Santoso",
+    "email": "budi@example.com",
+    "phone": "081255556666",
+    "password": "budi123",
+    "role": "customer",
+    "kycStatus": "rejected",
+    "kycFiles": {
+      "ktp": "ktp_cust_demo_pending.jpg",
+      "selfie": "selfie_cust_demo_pending.jpg"
+    },
+    "createdAt": "2026-05-31T05:41:52.447Z"
+  },
+  {
+    "id": "cust_demo_unverified",
+    "name": "Diana Lestari",
+    "email": "diana@example.com",
+    "phone": "081277778888",
+    "password": "diana123",
+    "role": "customer",
+    "kycStatus": "pending",
+    "kycFiles": null,
+    "createdAt": "2026-06-10T05:41:52.447Z"
+  },
+  {
+    "id": "cust_oabytvmob",
+    "name": "Muhammad Ilham Furoozan Firdaus",
+    "email": "muhammadiff43@gmail.com",
+    "phone": "+628998465084",
+    "password": "111111",
+    "role": "customer",
+    "kycStatus": "verified",
+    "kycFiles": {
+      "ktp": "ktp_cust_oabytvmob.jpg",
+      "selfie": "selfie_cust_oabytvmob.jpg"
+    },
+    "createdAt": "2026-06-10T09:08:32.388Z"
+  }
+]

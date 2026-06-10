@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RTK — Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    (function () {
+      var host = location.hostname;
+      if (host !== 'localhost' && host !== '127.0.0.1') {
+        document.write('<style>body{display:none}</style>');
+        location.replace('index.html');
+      }
+    })();
+  </script>
+</head>
+<body id="admin-body" style="visibility:hidden;">
+
+  <div class="admin-layout">
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/rtk_logo.png" alt="RTK Admin" style="height:40px;width:auto;object-fit:contain;">
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-tab="katalog">
+          <i class="fa-solid fa-box-open"></i> Katalog Produk
+        </a>
+        <a href="#" class="nav-item" data-tab="stok">
+          <i class="fa-solid fa-layer-group"></i> Stok
+        </a>
+        <a href="#" class="nav-item" data-tab="pemesanan">
+          <i class="fa-solid fa-clipboard-list"></i> Pemesanan
+          <span class="pending-badge" id="pending-badge" style="display:none;"></span>
+        </a>
+        <a href="#" class="nav-item" data-tab="kyc">
+          <i class="fa-solid fa-user-shield"></i> Verifikasi KYC
+          <span class="pending-badge" id="kyc-pending-badge" style="display:none;background:var(--blue-600);"></span>
+        </a>
+        <a href="#" class="nav-item" data-tab="kalender">
+          <i class="fa-solid fa-calendar-days"></i> Kalender
+        </a>
+        <a href="#" class="nav-item" data-tab="keuangan">
+          <i class="fa-solid fa-chart-line"></i> Keuangan
+        </a>
+        <a href="#" class="nav-item" data-tab="blacklist">
+          <i class="fa-solid fa-ban"></i> Blacklist
+        </a>
+        <a href="#" class="nav-item" data-tab="monitoring">
+          <i class="fa-solid fa-location-dot"></i> Monitoring GPS
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="index.html" class="nav-item back-link">
+          <i class="fa-solid fa-arrow-left"></i> Web Utama
+        </a>
+        <button id="logout-btn" class="nav-item logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- ===== MAIN ===== -->
+    <main class="admin-main">
+
+      <!-- Top bar -->
+      <header class="admin-topbar">
+        <div id="topbar-title">
+          <h1>Katalog Produk</h1>
+          <p>Kelola daftar kamera dan aksesoris RTK</p>
+        </div>
+        <div id="topbar-actions">
+          <button id="add-product-btn" class="btn primary admin-only">
+            <i class="fa-solid fa-plus"></i> Tambah Produk
+          </button>
+          <button id="import-json-btn" class="btn secondary admin-only" title="Restore catalog dari file JSON backup">
+            <i class="fa-solid fa-upload"></i> Import
+          </button>
+          <button id="export-json-btn" class="btn secondary admin-only">
+            <i class="fa-solid fa-download"></i> Backup
+          </button>
+          <input type="file" id="import-file-input" accept=".json" style="display:none">
+        </div>
+      </header>
+
+      <!-- ===== TAB: KATALOG ===== -->
+      <section class="tab-panel active" id="tab-katalog">
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-icon blue"><i class="fa-solid fa-box"></i></div>
+            <div><div class="stat-label">Total Produk</div><div class="stat-num" id="stat-total">0</div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon red"><i class="fa-solid fa-tag"></i></div>
+            <div><div class="stat-label">Promo Aktif</div><div class="stat-num" id="stat-promo">0</div></div>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <div class="table-search-bar">
+            <div class="search-wrap">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="katalog-search" placeholder="Cari produk...">
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Gambar</th><th>Nama Produk</th><th>Kategori</th>
+                  <th>Harga Normal</th><th>Harga Sale</th><th>Stok Unit</th><th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="katalog-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TAB: STOK ===== -->
+      <section class="tab-panel" id="tab-stok">
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-icon blue"><i class="fa-solid fa-warehouse"></i></div>
+            <div><div class="stat-label">Total Unit Produk</div><div class="stat-num" id="stat-stok-total">0</div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon orange"><i class="fa-solid fa-person-walking-arrow-right"></i></div>
+            <div><div class="stat-label">Sedang Disewa</div><div class="stat-num" id="stat-stok-renting">0</div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon green"><i class="fa-solid fa-circle-check"></i></div>
+            <div><div class="stat-label">Tersedia Hari Ini</div><div class="stat-num" id="stat-stok-available">0</div></div>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <div class="table-search-bar">
+            <div class="search-wrap">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="stok-search" placeholder="Cari nama produk...">
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Produk</th><th>Kategori</th>
+                  <th>Total Unit</th><th>Disewa</th><th>Tersedia</th><th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="stok-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TAB: PEMESANAN ===== -->
+      <section class="tab-panel" id="tab-pemesanan">
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-icon blue"><i class="fa-solid fa-calendar-check"></i></div>
+            <div><div class="stat-label">Total Booking</div><div class="stat-num" id="stat-book-total">0</div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon orange"><i class="fa-solid fa-spinner"></i></div>
+            <div><div class="stat-label">Aktif</div><div class="stat-num" id="stat-book-active">0</div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon green"><i class="fa-solid fa-check-double"></i></div>
+            <div><div class="stat-label">Selesai</div><div class="stat-num" id="stat-book-done">0</div></div>
+          </div>
+        </div>
+
+        <div class="pemesanan-actions" style="margin-bottom:1rem; display:flex; gap:.75rem; flex-wrap:wrap;">
+          <button id="add-booking-btn" class="btn primary admin-only">
+            <i class="fa-solid fa-plus"></i> Tambah Pemesanan
+          </button>
+          <button id="export-bookings-btn" class="btn secondary admin-only">
+            <i class="fa-solid fa-file-csv"></i> Export CSV
+          </button>
+          <div class="search-wrap" style="flex:1; max-width:320px;">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="booking-search" placeholder="Cari nama pelanggan...">
+          </div>
+        </div>
+
+        <div class="table-card">
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>#</th><th>Pelanggan</th><th>No. Telepon</th>
+                  <th>Produk</th><th>Mulai</th><th>Selesai</th>
+                  <th>Estimasi</th><th>Status</th><th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="booking-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TAB: KALENDER ===== -->
+      <section class="tab-panel" id="tab-kalender">
+        <div class="kalender-header">
+          <button class="btn secondary btn-sm" id="cal-prev"><i class="fa-solid fa-chevron-left"></i></button>
+          <h3 id="cal-month-label">April 2026</h3>
+          <button class="btn secondary btn-sm" id="cal-next"><i class="fa-solid fa-chevron-right"></i></button>
+          <button class="btn primary btn-sm" id="cal-today" style="margin-left:.5rem;">Hari Ini</button>
+        </div>
+
+        <!-- Month Grid -->
+        <div class="cal-grid-wrap">
+          <div class="cal-grid" id="cal-grid"></div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline-section">
+          <h4 class="timeline-title">Timeline Bulan Ini</h4>
+          <div class="timeline-wrap" id="timeline-wrap">
+            <!-- injected by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TAB: BLACKLIST ===== -->
+      <section class="tab-panel" id="tab-blacklist">
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-icon red"><i class="fa-solid fa-ban"></i></div>
+            <div><div class="stat-label">Total Diblokir</div><div class="stat-num" id="bl-count">0</div></div>
+          </div>
+        </div>
+
+        <!-- Add to blacklist form -->
+        <div class="table-card" style="padding:1.25rem;margin-bottom:1.25rem;">
+          <h4 style="font-size:.9rem;font-weight:800;margin-bottom:1rem;color:#334155;"><i class="fa-solid fa-plus"></i> Tambah ke Blacklist</h4>
+          <form id="blacklist-form" style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:.75rem;align-items:end;">
+            <div>
+              <label style="font-size:.78rem;font-weight:700;color:#64748b;display:block;margin-bottom:.3rem;">No. Telepon *</label>
+              <input type="text" id="bl-phone" placeholder="08xxxxxxxxxx" required style="width:100%;">
+            </div>
+            <div>
+              <label style="font-size:.78rem;font-weight:700;color:#64748b;display:block;margin-bottom:.3rem;">Nama</label>
+              <input type="text" id="bl-name" placeholder="Nama pelanggan"style="width:100%;">
+            </div>
+            <div>
+              <label style="font-size:.78rem;font-weight:700;color:#64748b;display:block;margin-bottom:.3rem;">Alasan *</label>
+              <input type="text" id="bl-reason" placeholder="Alat rusak / hilang / tidak bayar" required style="width:100%;">
+            </div>
+            <button type="submit" class="btn danger"><i class="fa-solid fa-ban"></i> Blokir</button>
+          </form>
+        </div>
+
+        <!-- Blacklist table -->
+        <div class="table-card">
+          <div class="table-search-bar">
+            <div class="search-wrap">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="bl-search" placeholder="Cari nomor atau nama...">
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr>
+                <th>#</th><th>No. Telepon</th><th>Nama</th><th>Alasan</th><th>Tanggal</th><th>Aksi</th>
+              </tr></thead>
+              <tbody id="blacklist-tbody"></tbody>
+            </table>
+          </div>
+      </section>
+
+      <!-- ===== TAB: VERIFIKASI KYC ===== -->
+      <section class="tab-panel" id="tab-kyc">
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-icon blue"><i class="fa-solid fa-user-shield"></i></div>
+            <div>
+              <div class="stat-label">Menunggu Verifikasi</div>
+              <div class="stat-num" id="stat-kyc-pending">0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Pelanggan</th>
+                  <th>Kontak</th>
+                  <th>Foto KTP</th>
+                  <th>Selfie + KTP</th>
+                  <th>Tanggal Upload</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="kyc-tbody">
+                <tr><td colspan="6" style="text-align:center;padding:2rem;color:#94a3b8;">Tidak ada berkas KYC pending.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TAB: MONITORING GPS ===== -->
+      <section class="tab-panel" id="tab-monitoring">
+        <div style="display:grid;grid-template-columns:320px 1fr;gap:1.25rem;height:calc(100vh - 180px);">
+
+          <!-- Sidebar: active rentals list -->
+          <div style="display:flex;flex-direction:column;gap:1rem;overflow:hidden;">
+            <div class="table-card" style="padding:1rem;flex-shrink:0;">
+              <h4 style="font-size:.875rem;font-weight:800;margin-bottom:.75rem;color:#334155;">
+                <i class="fa-solid fa-satellite-dish" style="color:#2563eb;"></i> Rental Aktif
+                <span id="tracking-count" style="font-size:.75rem;font-weight:600;color:#64748b;margin-left:.4rem;">0 terdeteksi</span>
+              </h4>
+              <div id="tracking-list" style="font-size:.82rem;color:#64748b;text-align:center;padding:.5rem;">Memuat data...</div>
+            </div>
+
+            <!-- Manual location update -->
+            <div class="table-card" style="padding:1rem;flex-shrink:0;">
+              <h4 style="font-size:.82rem;font-weight:800;margin-bottom:.75rem;color:#334155;">
+                <i class="fa-solid fa-pen-to-square" style="color:#ea580c;"></i> Update Lokasi Manual
+              </h4>
+              <form id="tracking-form" style="display:flex;flex-direction:column;gap:.6rem;">
+                <select id="tr-booking" style="width:100%;"><option value="">Pilih Booking Aktif...</option></select>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;">
+                  <input type="number" id="tr-lat" placeholder="Latitude" step="any" style="width:100%;">
+                  <input type="number" id="tr-lng" placeholder="Longitude" step="any" style="width:100%;">
+                </div>
+                <input type="text" id="tr-address" placeholder="Nama lokasi / alamat" style="width:100%;">
+                <button type="submit" class="btn primary btn-sm"><i class="fa-solid fa-location-crosshairs"></i> Update Lokasi</button>
+                <button type="button" id="tr-myloc" class="btn secondary btn-sm"><i class="fa-solid fa-crosshairs"></i> Pakai Lokasiku</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Map -->
+          <div class="table-card" style="overflow:hidden;position:relative;">
+            <div id="monitoring-map" style="width:100%;height:100%;min-height:400px;"></div>
+            <button id="tr-refresh" style="position:absolute;top:.75rem;right:.75rem;z-index:500;" class="btn primary btn-sm">
+              <i class="fa-solid fa-rotate"></i> Refresh
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TAB 5: KEUANGAN ===== -->
+      <section class="tab-panel" id="tab-keuangan">
+
+        <!-- Summary Cards -->
+        <div class="stats-grid" style="grid-template-columns:repeat(4,1fr);">
+          <div class="stat-card">
+            <div class="stat-icon" style="background:#f0fdf4;color:#16a34a;"><i class="fa-solid fa-sack-dollar"></i></div>
+            <div class="stat-body">
+              <div class="stat-label">Total Omzet</div>
+              <div class="stat-value" id="fin-total-revenue">Rp 0</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:#eff6ff;color:#2563eb;"><i class="fa-solid fa-calendar-check"></i></div>
+            <div class="stat-body">
+              <div class="stat-label">Bulan Ini</div>
+              <div class="stat-value" id="fin-month-revenue">Rp 0</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:#fff7ed;color:#ea580c;"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="stat-body">
+              <div class="stat-label">Deposit Tertahan</div>
+              <div class="stat-value" id="fin-deposit-held">Rp 0</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:#fdf4ff;color:#9333ea;"><i class="fa-solid fa-boxes-stacked"></i></div>
+            <div class="stat-body">
+              <div class="stat-label">Booking Lunas</div>
+              <div class="stat-value" id="fin-paid-count">0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;">
+          <div class="table-card">
+            <div class="table-card-header">
+              <span>Omzet 6 Bulan Terakhir</span>
+              <div style="display:flex;gap:.5rem;">
+                <button class="btn secondary btn-sm" onclick="exportFinanceCSV()" title="Export CSV"><i class="fa-solid fa-file-csv"></i> Export</button>
+                <button class="btn secondary btn-sm" onclick="initKeuangan()" title="Refresh"><i class="fa-solid fa-rotate"></i></button>
+              </div>
+            </div>
+            <div style="padding:1rem;">
+              <canvas id="chart-revenue" height="120"></canvas>
+            </div>
+          </div>
+          <div class="table-card">
+            <div class="table-card-header"><span>Status Booking</span></div>
+            <div style="padding:1rem;">
+              <canvas id="chart-status" height="160"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Products + Deposit Table -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div class="table-card">
+            <div class="table-card-header"><span>🏆 Top 5 Produk Terlaris</span></div>
+            <div style="padding:1rem;">
+              <canvas id="chart-products" height="180"></canvas>
+            </div>
+          </div>
+          <div class="table-card">
+            <div class="table-card-header">
+              <span>💰 Deposit / Jaminan</span>
+              <span id="fin-deposit-total" style="font-size:.8rem;color:#94a3b8;"></span>
+            </div>
+            <div style="padding:.5rem 0;max-height:260px;overflow-y:auto;">
+              <table style="width:100%;border-collapse:collapse;font-size:.8rem;">
+                <thead><tr style="background:#f8fafc;">
+                  <th style="padding:.5rem;text-align:left;color:#64748b;">Pelanggan</th>
+                  <th style="padding:.5rem;text-align:left;color:#64748b;">Deposit</th>
+                  <th style="padding:.5rem;text-align:left;color:#64748b;">Metode</th>
+                  <th style="padding:.5rem;text-align:left;color:#64748b;">Status</th>
+                </tr></thead>
+                <tbody id="deposit-tbody">
+                  <tr><td colspan="4" style="padding:1rem;text-align:center;color:#94a3b8;">Belum ada data deposit</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Monthly breakdown table -->
+        <div class="table-card">
+          <div class="table-card-header">
+            <span>📅 Rincian Bulanan</span>
+            <button class="btn secondary btn-sm" id="export-finance-btn"><i class="fa-solid fa-download"></i> Export CSV</button>
+          </div>
+          <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:.85rem;">
+              <thead><tr style="background:#f8fafc;">
+                <th style="padding:.6rem 1rem;text-align:left;color:#64748b;">Bulan</th>
+                <th style="padding:.6rem 1rem;text-align:right;color:#64748b;">Booking</th>
+                <th style="padding:.6rem 1rem;text-align:right;color:#64748b;">Selesai</th>
+                <th style="padding:.6rem 1rem;text-align:right;color:#64748b;">Omzet</th>
+                <th style="padding:.6rem 1rem;text-align:right;color:#64748b;">Deposit</th>
+              </tr></thead>
+              <tbody id="monthly-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ===== MODAL: PRODUCT FORM ===== -->
+  <div class="modal-overlay" id="product-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="product-modal-title">Tambah Produk</h3>
+        <button class="btn-icon" id="close-product-modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="product-form" autocomplete="off">
+          <input type="hidden" id="form-id">
+          <div class="form-group">
+            <label>Nama Produk</label>
+            <input type="text" id="form-name" required placeholder="Contoh: Sony A7 Mark III">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Kategori</label>
+              <select id="form-category" required>
+                <option value="kamera-digital">Kamera Digital</option>
+                <option value="action-cam">Action Cam &amp; Antiair</option>
+                <option value="dslr">DSLR</option>
+                <option value="mirrorless">Mirrorless</option>
+                <option value="camcorder">Camcorder / Handycam</option>
+                <option value="lensa">Lensa</option>
+                <option value="aksesoris">Aksesoris / Gimbal</option>
+                <option value="paket">Paketan</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Jumlah Unit (Stok)</label>
+              <input type="number" id="form-units" min="1" value="1" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Harga Normal (Rp/hari)</label>
+              <input type="number" id="form-normal-price" required placeholder="150000">
+            </div>
+            <div class="form-group">
+              <label>Harga Promo (Rp) — Opsional</label>
+              <input type="number" id="form-sale-price" placeholder="0 jika tidak diskon">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>URL / Path Foto Produk</label>
+            <input type="text" id="form-image" placeholder="assets/nama-produk/main.jpg atau https://..." required>
+            <small>Gunakan path lokal (assets/...) atau URL gambar dari internet</small>
+          </div>
+          <div class="form-group">
+            <label>Deskripsi Produk (Opsional)</label>
+            <textarea id="form-description" rows="3" placeholder="Spesifikasi, kondisi, apa yang termasuk dalam paket sewa, dll..." style="width:100%;padding:.75rem;border:1px solid #e2e8f0;border-radius:8px;font-family:inherit;font-size:.9rem;resize:vertical;"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Serial Number Unit <small style="color:#94a3b8;font-weight:400;">(Opsional — satu per baris)</small></label>
+            <textarea id="form-serials" rows="3" placeholder="SN001&#10;SN002&#10;SN003" style="width:100%;padding:.75rem;border:1px solid #e2e8f0;border-radius:8px;font-family:monospace;font-size:.85rem;resize:vertical;"></textarea>
+            <small>Jumlah baris harus sama dengan jumlah unit stok</small>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn secondary" id="cancel-product-btn">Batal</button>
+            <button type="submit" class="btn primary">Simpan Produk</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODAL: BOOKING FORM ===== -->
+  <div class="modal-overlay" id="booking-modal">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h3 id="booking-modal-title">Tambah Pemesanan</h3>
+        <button class="btn-icon" id="close-booking-modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="booking-form" autocomplete="off">
+          <input type="hidden" id="bform-id">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nama Pelanggan</label>
+              <input type="text" id="bform-name" required placeholder="Nama lengkap">
+            </div>
+            <div class="form-group">
+              <label>Nomor Telepon</label>
+              <input type="tel" id="bform-phone" required placeholder="08xxxxxxxxxx">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Tanggal Mulai Sewa</label>
+              <input type="date" id="bform-start" required>
+            </div>
+            <div class="form-group">
+              <label>Tanggal Selesai Sewa</label>
+              <input type="date" id="bform-end" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Produk yang Disewa</label>
+            <div id="booking-items-list">
+              <!-- dynamic rows -->
+            </div>
+            <button type="button" class="btn secondary btn-sm" id="add-booking-item">
+              <i class="fa-solid fa-plus"></i> Tambah Produk
+            </button>
+          </div>
+
+          <div class="form-group">
+            <label>Catatan</label>
+            <textarea id="bform-notes" rows="2" placeholder="Keperluan, lokasi, dll..." style="width:100%;padding:.75rem;border:1px solid #e2e8f0;border-radius:8px;font-family:inherit;font-size:.9rem;resize:vertical;"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Status</label>
+            <select id="bform-status">
+              <option value="pending">Pending</option>
+              <option value="confirmed">Dikonfirmasi</option>
+              <option value="active">Aktif (Sedang Berlangsung)</option>
+              <option value="done">Selesai</option>
+              <option value="cancelled">Dibatalkan</option>
+            </select>
+          </div>
+
+          <!-- Estimasi total -->
+          <div class="booking-total-preview">
+            <i class="fa-solid fa-calculator"></i>
+            Estimasi Total: <strong id="bform-total">Rp 0</strong>
+          </div>
+
+          <!-- Deposit / Jaminan -->
+          <div style="border:1.5px solid #e0f2fe;border-radius:10px;padding:.9rem;margin-bottom:.75rem;background:#f0f9ff;">
+            <div style="font-size:.78rem;font-weight:800;color:#0369a1;margin-bottom:.6rem;display:flex;align-items:center;gap:.4rem;">
+              <i class="fa-solid fa-shield-halved"></i> Deposit / Jaminan
+            </div>
+            <div class="form-row" style="margin-bottom:0;">
+              <div class="form-group" style="margin-bottom:0;">
+                <label>Jumlah Deposit (Rp)</label>
+                <input type="number" id="bform-deposit" min="0" placeholder="500000">
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label>Metode Pembayaran</label>
+                <select id="bform-deposit-method">
+                  <option value="">— Pilih —</option>
+                  <option value="cash">Cash / Tunai</option>
+                  <option value="transfer">Transfer Bank</option>
+                  <option value="qris">QRIS</option>
+                  <option value="ewallet">E-Wallet</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label>Status Deposit</label>
+                <select id="bform-deposit-status">
+                  <option value="pending">Belum Dibayar</option>
+                  <option value="paid">Sudah Dibayar</option>
+                  <option value="returned">Sudah Dikembalikan</option>
+                  <option value="forfeited">Hangus / Dipotong</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn secondary" id="cancel-booking-btn">Batal</button>
+            <button type="submit" class="btn primary">Simpan Pemesanan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODAL: BOOKING DETAIL ===== -->
+  <div class="modal-overlay" id="booking-detail-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Detail Pemesanan</h3>
+        <button class="btn-icon" id="close-detail-modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="booking-detail-content"></div>
+      <div style="padding:1rem 1.5rem;border-top:1px solid #e2e8f0;display:flex;justify-content:flex-end;gap:.6rem;">
+        <button class="btn secondary btn-sm" id="detail-edit-btn"><i class="fa-solid fa-pen"></i> Edit</button>
+        <button class="btn primary btn-sm" id="detail-print-btn"><i class="fa-solid fa-print"></i> Cetak Invoice</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== LOGIN GATE ===== -->
+  <div id="login-gate">
+    <div class="login-card">
+      <img src="assets/rtk_logo.png" alt="RTK Admin" style="height:48px;width:auto;object-fit:contain;margin-bottom:1rem;filter:brightness(0) invert(1);">
+      <h2> </h2>
+      <p>Akses terbatas — hanya bisa dibuka dari perangkat lokal.</p>
+      <form id="login-form" autocomplete="off">
+        <div class="login-field">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" id="login-username" placeholder="Username (admin/staff)" autofocus autocomplete="username">
+        </div>
+        <div class="login-field" style="margin-top: .75rem;">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="login-password" placeholder="Password" autocomplete="current-password">
+        </div>
+        <div id="login-error" class="login-error" style="display:none;">
+          <i class="fa-solid fa-circle-exclamation"></i> Username atau password salah.
+        </div>
+        <button type="submit" class="btn primary" style="width:100%;margin-top:.5rem;">
+          Masuk <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+      <small class="login-hint">Lupa password? Hubungi developer 😄</small>
+    </div>
+  </div>
+
+  <!-- ===== MODAL: CONDITION CHECKLIST ===== -->
+  <div class="modal-overlay" id="checklist-modal">
+    <div class="modal modal-lg" style="max-width:620px;">
+      <div class="modal-header" style="background:linear-gradient(135deg,#0f172a,#1e3a5f);color:white;border-radius:14px 14px 0 0;">
+        <div>
+          <h3 style="color:white;font-size:1rem;display:flex;align-items:center;gap:.5rem;">
+            <i class="fa-solid fa-clipboard-check"></i> Checklist Kondisi Barang
+          </h3>
+          <div id="checklist-booking-label" style="font-size:.75rem;color:#94a3b8;margin-top:.2rem;"></div>
+        </div>
+        <button class="btn-icon" id="close-checklist-modal" style="color:white;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" style="max-height:80vh;overflow-y:auto;padding:0;">
+
+        <!-- Type toggle -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid #e2e8f0;">
+          <button id="cl-type-pickup" class="cl-type-btn active" onclick="setChecklistType('pickup')">
+            <i class="fa-solid fa-box-open"></i> Pengambilan
+          </button>
+          <button id="cl-type-return" class="cl-type-btn" onclick="setChecklistType('return')">
+            <i class="fa-solid fa-rotate-left"></i> Pengembalian
+          </button>
+        </div>
+
+        <!-- Existing data banner -->
+        <div id="cl-existing-banner" style="display:none;background:#fff7ed;border-bottom:1px solid #fed7aa;padding:.6rem 1.25rem;font-size:.8rem;color:#ea580c;">
+          <i class="fa-solid fa-circle-info"></i> <span id="cl-existing-text"></span>
+        </div>
+
+        <!-- Checklist items -->
+        <div style="padding:1rem 1.25rem;">
+          <div id="checklist-items-wrap">
+            <!-- injected by JS -->
+          </div>
+
+          <!-- Overall notes -->
+          <div style="margin-top:1rem;">
+            <label style="font-size:.8rem;font-weight:700;color:#475569;display:block;margin-bottom:.35rem;">
+              <i class="fa-solid fa-note-sticky" style="color:#f59e0b;"></i> Catatan Keseluruhan
+            </label>
+            <textarea id="cl-overall-notes" rows="2" placeholder="Kondisi umum, hal yang perlu diperhatikan..."
+              style="width:100%;padding:.65rem;border:1.5px solid #e2e8f0;border-radius:8px;font-family:inherit;font-size:.85rem;resize:vertical;"></textarea>
+          </div>
+
+          <!-- Timestamp & Inspector -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:.75rem;">
+            <div>
+              <label style="font-size:.78rem;font-weight:700;color:#475569;display:block;margin-bottom:.3rem;">Nama Petugas</label>
+              <input type="text" id="cl-inspector" placeholder="Nama petugas RTK" style="width:100%;">
+            </div>
+            <div>
+              <label style="font-size:.78rem;font-weight:700;color:#475569;display:block;margin-bottom:.3rem;">Tanggal & Waktu</label>
+              <input type="datetime-local" id="cl-datetime" style="width:100%;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div style="padding:.75rem 1.25rem 1.25rem;display:flex;gap:.75rem;border-top:1px solid #e2e8f0;background:#f8fafc;border-radius:0 0 14px 14px;">
+          <button class="btn primary" id="cl-save-btn" style="flex:1;">
+            <i class="fa-solid fa-floppy-disk"></i> Simpan Checklist
+          </button>
+          <button class="btn secondary" id="close-checklist-modal-2">Batal</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data/products.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RTK — Rental Kamera & Aksesoris Tangerang</title>
+  <meta name="description" content="Sewa/rental kamera dan aksesoris khusus wilayah Tangerang Kelapa Dua, Lippo Karawaci, BSD, Gading Serpong, dan sekitarnya. Harga terjangkau, kualitas terjamin." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <img src="assets/rtk_logo.png" alt="RTK Tangerang" class="logo-img">
+      </a>
+
+      <div class="nav-links">
+        <a href="#katalog">Katalog</a>
+        <a href="#cara-pesan">Cara Pesan</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+
+      <div class="nav-right">
+        <!-- Auth Widget -->
+        <div id="auth-widget" class="auth-widget">
+          <button id="nav-login-btn" class="nav-auth-btn">
+            <i class="fa-regular fa-user"></i> Masuk / Daftar
+          </button>
+        </div>
+
+        <button id="cart-btn" aria-label="Keranjang">
+          <i class="fa-solid fa-cart-shopping"></i>
+          Keranjang
+          <span class="cart-badge" id="cart-badge">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="promo-pill">
+        <i class="fa-solid fa-fire"></i> PRICE DROP — HUT ke-6 RTK
+      </div>
+      <h1>Sewa Kamera di <span>Tangerang</span>,<br>Budget Lebih Hemat!</h1>
+      <p>Kelapa Dua · Lippo Karawaci · BSD · Gading Serpong dan sekitarnya. Ratusan kamera & aksesoris siap sewa.</p>
+    </div>
+  </section>
+
+  <!-- ===== INFO BANNER ===== -->
+  <div class="info-banner">
+    <div class="info-banner-inner">
+      <i class="fa-solid fa-circle-info"></i>
+      <span>
+        <strong>QRIS &gt;Rp500.000</strong> dikenakan MDR + PPN 12% sesuai ketentuan BI. Tanyakan admin untuk detail DP.
+        &nbsp;|&nbsp; Booking &amp; Pembayaran instan <strong>langsung via Web</strong>.
+      </span>
+    </div>
+  </div>
+
+  <!-- ===== CARA PESAN ===== -->
+  <section class="how-section" id="cara-pesan">
+    <div class="how-inner">
+      <p class="section-title-sm">Cara Memesan</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">Daftar &amp; lengkapi <strong>Verifikasi KYC</strong> di Profil</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">Pilih produk &amp; atur <strong>durasi sewa</strong> di keranjang</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">Bayar instan via <strong>Simulasi Payment Gateway</strong></div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-text">Pesanan dikonfirmasi otomatis &amp; ambil barang sesuai jadwal</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATALOG ===== -->
+  <section class="catalog-section" id="katalog">
+    <div class="catalog-header">
+      <h2>Katalog Produk</h2>
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="kamera-digital">Kamera Digital</button>
+        <button class="filter-btn" data-filter="action-cam">Action Cam</button>
+        <button class="filter-btn" data-filter="dslr">DSLR</button>
+        <button class="filter-btn" data-filter="mirrorless">Mirrorless</button>
+        <button class="filter-btn" data-filter="camcorder">Camcorder</button>
+        <button class="filter-btn" data-filter="lensa">Lensa</button>
+        <button class="filter-btn" data-filter="aksesoris">Aksesoris</button>
+        <button class="filter-btn" data-filter="paket">Paketan</button>
+      </div>
+    </div>
+
+    <div class="product-grid" id="product-grid"></div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="kontak">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo" style="display:inline-block;margin-bottom:.5rem;">
+          <img src="assets/rtk_logo.png" alt="RTK Tangerang" class="logo-img" style="filter: brightness(0) invert(1);">
+        </a>
+        <p>Rental Kamera & Aksesoris Tangerang.<br>Provide your Memories, Saving your Budget.</p>
+      </div>
+      <div class="footer-info">
+        <p><i class="fa-solid fa-location-dot"></i> GRHA MESRA, Jl. Kano 17 No.6 Kelapa Dua, Tangerang 15810 Banten</p>
+        <p><i class="fa-brands fa-whatsapp"></i> 087-870-456-RTK (785)</p>
+        <p><i class="fa-solid fa-clock"></i> Hanya dengan perjanjian / by appointment</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 RTK Tangerang. est. April 21st, 2020</span>
+      <span>Dibangun dengan ❤️ untuk komunitas fotografer Tangerang</span>
+    </div>
+  </footer>
+
+  <!-- ===== PRODUCT DETAIL MODAL ===== -->
+  <div class="pdp-overlay" id="pdp-overlay"></div>
+  <div class="pdp-modal" id="pdp-modal" role="dialog" aria-modal="true" aria-labelledby="pdp-name">
+    <button class="pdp-close" id="pdp-close" aria-label="Tutup">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="pdp-img-wrap">
+      <img id="pdp-img" src="" alt="" loading="lazy">
+      <span class="pdp-badge" id="pdp-badge">PROMO</span>
+      <div class="pdp-gallery" id="pdp-gallery"></div>
+    </div>
+    <div class="pdp-info">
+      <span class="pdp-category" id="pdp-category"></span>
+      <h2 class="pdp-name" id="pdp-name"></h2>
+      <div class="pdp-price-block">
+        <div class="pdp-price-sale" id="pdp-price-sale"></div>
+        <div class="pdp-price-orig" id="pdp-price-orig"></div>
+      </div>
+      <p class="pdp-desc" id="pdp-desc"></p>
+      <div class="pdp-meta" id="pdp-meta"></div>
+
+      <!-- Availability Calendar -->
+      <div class="pdp-avail-section" id="pdp-avail-section">
+        <div class="pdp-avail-header">
+          <span class="pdp-avail-title"><i class="fa-solid fa-calendar-days"></i> Ketersediaan</span>
+          <div class="pdp-avail-nav">
+            <button class="pdp-cal-nav" id="pdp-cal-prev" aria-label="Bulan sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+            <span id="pdp-cal-month-label"></span>
+            <button class="pdp-cal-nav" id="pdp-cal-next" aria-label="Bulan berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+        <div class="pdp-cal-legend">
+          <span class="pdp-legend-item"><span class="pdp-dot pdp-dot-green"></span> Tersedia</span>
+          <span class="pdp-legend-item"><span class="pdp-dot pdp-dot-red"></span> Penuh</span>
+          <span class="pdp-legend-item"><span class="pdp-dot pdp-dot-gray"></span> Lewat</span>
+        </div>
+        <div class="pdp-cal-grid" id="pdp-cal-grid">
+          <!-- JS renders day cells here -->
+        </div>
+
+        <!-- Date range picker -->
+        <div class="pdp-date-picker">
+          <label style="font-size:.78rem;font-weight:700;color:#475569;margin-bottom:.35rem;display:block;">Pilih Tanggal Sewa:</label>
+          <div style="display:flex;gap:.5rem;">
+            <input type="date" id="pdp-date-start" style="flex:1;padding:.45rem .6rem;border:1.5px solid #e2e8f0;border-radius:6px;font-family:inherit;font-size:.85rem;">
+            <span style="align-self:center;color:#94a3b8;font-size:.85rem;">s/d</span>
+            <input type="date" id="pdp-date-end" style="flex:1;padding:.45rem .6rem;border:1.5px solid #e2e8f0;border-radius:6px;font-family:inherit;font-size:.85rem;">
+          </div>
+          <div id="pdp-availability-status" style="margin-top:.5rem;font-size:.85rem;font-weight:600;"></div>
+          <div id="pdp-price-estimate" style="margin-top:.35rem;font-size:.9rem;font-weight:800;color:#2563eb;"></div>
+        </div>
+      </div>
+
+      <div class="pdp-actions" style="margin-top: 1rem;">
+        <button class="pdp-btn-cart" id="pdp-btn-cart">
+          <i class="fa-solid fa-cart-plus"></i> Tambah ke Keranjang
+        </button>
+        <a class="pdp-btn-wa" id="pdp-btn-wa" href="#" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i> Tanya via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CART DRAWER ===== -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Keranjang">
+    <div class="cart-header">
+      <h3><i class="fa-solid fa-cart-shopping"></i> Keranjang Sewa</h3>
+      <button class="btn-close" id="close-cart"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="cart-items" id="cart-items">
+      <!-- injected by JS -->
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-summary">
+        <span>Estimasi Total</span>
+        <span id="cart-total-label">per hari</span>
+      </div>
+      <div class="cart-total-line">
+        <span id="cart-total-price">Rp 0</span>
+      </div>
+      <button class="btn-checkout" id="checkout-btn" disabled>
+        <i class="fa-solid fa-credit-card" style="font-size:1.2rem;"></i>
+        Lanjutkan ke Checkout
+      </button>
+      <button class="btn-clear" id="clear-cart">Kosongkan Keranjang</button>
+    </div>
+  </aside>
+
+  <!-- ===== CHECKOUT MODAL ===== -->
+  <div class="checkout-overlay" id="checkout-overlay"></div>
+  <div class="checkout-modal" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+    <div class="checkout-modal-header">
+      <h3 id="checkout-title"><i class="fa-solid fa-cart-shopping"></i> Konfirmasi Pesanan</h3>
+      <button class="pdp-close" id="checkout-close" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="checkout-modal-body">
+      <p class="checkout-subtitle">Konfirmasi detail dan tanggal sewa Anda sebelum melakukan pembayaran.</p>
+      <form id="checkout-form" autocomplete="off" novalidate>
+        <div class="cform-group">
+          <label for="cform-name">Nama Lengkap</label>
+          <input type="text" id="cform-name" disabled style="background:var(--slate-50);cursor:not-allowed;">
+          <span class="cform-err" id="cform-name-err"></span>
+        </div>
+        <div class="cform-group">
+          <label for="cform-phone">Nomor Telepon</label>
+          <input type="tel" id="cform-phone" disabled style="background:var(--slate-50);cursor:not-allowed;">
+          <span class="cform-err" id="cform-phone-err"></span>
+        </div>
+        <div class="cform-row">
+          <div class="cform-group">
+            <label for="cform-start">Tanggal Mulai Sewa <span class="req">*</span></label>
+            <input type="date" id="cform-start" required>
+          </div>
+          <div class="cform-group">
+            <label for="cform-end">Tanggal Selesai Sewa <span class="req">*</span></label>
+            <input type="date" id="cform-end" required>
+          </div>
+        </div>
+        <span class="cform-err" id="cform-date-err"></span>
+        <div class="cform-group">
+          <label for="cform-notes">Catatan (Opsional)</label>
+          <textarea id="cform-notes" rows="2" placeholder="Keperluan, lokasi pengambilan, dll..."></textarea>
+        </div>
+
+        <!-- Order summary -->
+        <div class="checkout-summary" id="checkout-summary"></div>
+
+        <div class="cform-err" id="cform-conflict-err" style="margin-top:.5rem;"></div>
+
+        <button type="submit" class="btn-checkout-confirm" id="checkout-confirm-btn">
+          <i class="fa-solid fa-credit-card"></i> Lanjutkan ke Pembayaran
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div id="toast"></div>
+
+  <!-- ===== LATE FINE CALCULATOR MODAL ===== -->
+  <div class="fine-modal-overlay" id="fine-overlay"></div>
+  <div class="fine-modal" id="fine-modal" role="dialog" aria-modal="true">
+    <div class="fine-modal-header">
+      <h3><i class="fa-solid fa-clock-rotate-left"></i> Kalkulator Denda Keterlambatan</h3>
+      <button class="pdp-close" id="fine-close" style="color:white;" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="fine-modal-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem;">
+        <div>
+          <label style="font-size:.78rem;font-weight:700;color:#64748b;display:block;margin-bottom:.3rem;">Harga Sewa/Hari</label>
+          <input type="number" id="fine-price-per-day" placeholder="123000" min="0" style="width:100%;">
+        </div>
+        <div>
+          <label style="font-size:.78rem;font-weight:700;color:#64748b;display:block;margin-bottom:.3rem;">% Denda per Hari</label>
+          <input type="number" id="fine-pct" value="100" min="1" max="500" style="width:100%;">
+        </div>
+        <div>
+          <label style="font-size:.78rem;font-weight:700;color:#64748b;display:block;margin-bottom:.3rem;">Jadwal Kembali</label>
+          <input type="date" id="fine-due" style="width:100%;">
+        </div>
+        <div>
+          <label style="font-size:.78rem;font-weight:700;color:#64748b;display:block;margin-bottom:.3rem;">Tanggal Kembali Aktual</label>
+          <input type="date" id="fine-actual" style="width:100%;">
+        </div>
+      </div>
+      <button onclick="calcLateFine()" class="btn-checkout-confirm" style="background:#dc2626;box-shadow:0 4px 12px rgba(220,38,38,.3);margin-bottom:1rem;">
+        <i class="fa-solid fa-calculator"></i> Hitung Denda
+      </button>
+      <div id="fine-result" style="display:none;">
+        <div class="fine-row"><span>Hari Terlambat</span><span id="fine-days-late" style="font-weight:700;color:#dc2626;"></span></div>
+        <div class="fine-row"><span>Harga Sewa/Hari</span><span id="fine-price-label"></span></div>
+        <div class="fine-row"><span>% Denda</span><span id="fine-pct-label"></span></div>
+        <div class="fine-row"><span>Denda/Hari</span><span id="fine-per-day-amount"></span></div>
+        <div class="fine-total">
+          <span>Total Denda</span>
+          <span id="fine-total-amount"></span>
+        </div>
+        <button onclick="closeFineModal()" style="width:100%;margin-top:.75rem;background:var(--blue-600);color:white;border:none;padding:.7rem;border-radius:8px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;">
+          <i class="fa-solid fa-circle-check"></i> Selesai
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CUSTOMER AUTH MODAL ===== -->
+  <div class="auth-overlay" id="auth-overlay"></div>
+  <div class="auth-modal" id="auth-modal" role="dialog" aria-modal="true">
+    <button class="auth-close" id="auth-close" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+    
+    <div class="auth-tabs">
+      <button class="auth-tab-btn active" id="tab-login-btn">Masuk</button>
+      <button class="auth-tab-btn" id="tab-register-btn">Daftar</button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="cust-login-form" class="auth-form-panel active">
+      <div class="aform-group">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" placeholder="nama@email.com" required autocomplete="email">
+      </div>
+      <div class="aform-group">
+        <label for="login-pw">Password</label>
+        <input type="password" id="login-pw" placeholder="Password" required autocomplete="current-password">
+      </div>
+      <span class="aform-err" id="cust-login-err" style="color:var(--red-600);font-size:.78rem;margin-top:.25rem;display:block;"></span>
+      <button type="submit" class="btn-auth-submit">Masuk ke Akun</button>
+    </form>
+
+    <!-- Register Form -->
+    <form id="cust-register-form" class="auth-form-panel">
+      <div class="aform-group">
+        <label for="reg-name">Nama Lengkap</label>
+        <input type="text" id="reg-name" placeholder="Contoh: Budi Santoso" required autocomplete="name">
+      </div>
+      <div class="aform-group">
+        <label for="reg-email">Email</label>
+        <input type="email" id="reg-email" placeholder="nama@email.com" required autocomplete="email">
+      </div>
+      <div class="aform-group">
+        <label for="reg-phone">Nomor Telepon</label>
+        <input type="tel" id="reg-phone" placeholder="08xxxxxxxxxx" required autocomplete="tel">
+      </div>
+      <div class="aform-group">
+        <label for="reg-pw">Password</label>
+        <input type="password" id="reg-pw" placeholder="Minimal 6 karakter" required autocomplete="new-password">
+      </div>
+      <span class="aform-err" id="cust-register-err" style="color:var(--red-600);font-size:.78rem;margin-top:.25rem;display:block;"></span>
+      <button type="submit" class="btn-auth-submit">Buat Akun Baru</button>
+    </form>
+  </div>
+
+  <!-- ===== CUSTOMER PROFILE & KYC MODAL ===== -->
+  <div class="profile-overlay" id="profile-overlay"></div>
+  <div class="profile-modal" id="profile-modal" role="dialog" aria-modal="true">
+    <div class="profile-header">
+      <h3><i class="fa-solid fa-user-gear"></i> Profil & KYC Saya</h3>
+      <button class="profile-close" id="profile-close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    
+    <div class="profile-body">
+      <!-- Profile Info -->
+      <div class="profile-section">
+        <div class="profile-info-grid">
+          <div>
+            <div style="font-size:.75rem;color:var(--slate-500);font-weight:700;">Nama Lengkap</div>
+            <div id="prof-name" style="font-weight:700;color:var(--slate-900);">—</div>
+          </div>
+          <div>
+            <div style="font-size:.75rem;color:var(--slate-500);font-weight:700;">Email</div>
+            <div id="prof-email" style="font-weight:700;color:var(--slate-900);">—</div>
+          </div>
+          <div>
+            <div style="font-size:.75rem;color:var(--slate-500);font-weight:700;">No. Telepon</div>
+            <div id="prof-phone" style="font-weight:700;color:var(--slate-900);">—</div>
+          </div>
+          <div>
+            <div style="font-size:.75rem;color:var(--slate-500);font-weight:700;">Status KYC</div>
+            <div id="prof-kyc-badge">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KYC Upload Form (Conditional) -->
+      <div class="profile-section" id="prof-kyc-upload-section" style="display:none;">
+        <h4 style="font-size:.85rem;font-weight:800;color:var(--slate-700);margin-bottom:.5rem;">
+          <i class="fa-solid fa-id-card"></i> Upload Berkas KYC
+        </h4>
+        <p style="font-size:.78rem;color:var(--slate-500);margin-bottom:.75rem;">
+          Akun Anda memerlukan verifikasi KTP. Foto KTP asli wajib, selfie jaminan opsional namun direkomendasikan.
+        </p>
+        
+        <form id="prof-kyc-form">
+          <div class="kyc-uploads" style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+            <div class="kyc-upload-item" style="flex: 1;">
+              <label for="prof-ktp">Foto KTP <span class="req">*</span></label>
+              <div class="kyc-drop" id="prof-ktp-drop" onclick="document.getElementById('prof-ktp').click()" style="border: 2px dashed var(--slate-200); border-radius: 8px; padding: 1rem; text-align: center; cursor: pointer; position: relative; aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <i class="fa-solid fa-id-card" style="font-size: 2rem; color: var(--slate-400); margin-bottom: 0.5rem;"></i>
+                <span id="prof-ktp-label" style="font-size: 0.8rem; color: var(--slate-500);">Upload foto KTP</span>
+                <img id="prof-ktp-preview" class="kyc-preview" alt="Preview KTP" style="display:none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
+              </div>
+              <input type="file" id="prof-ktp" accept="image/*" style="display:none;">
+            </div>
+            
+            <div class="kyc-upload-item" style="flex: 1;">
+              <label for="prof-selfie">Selfie + KTP</label>
+              <div class="kyc-drop" id="prof-selfie-drop" onclick="document.getElementById('prof-selfie').click()" style="border: 2px dashed var(--slate-200); border-radius: 8px; padding: 1rem; text-align: center; cursor: pointer; position: relative; aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <i class="fa-solid fa-camera" style="font-size: 2rem; color: var(--slate-400); margin-bottom: 0.5rem;"></i>
+                <span id="prof-selfie-label" style="font-size: 0.8rem; color: var(--slate-500);">Foto Selfie</span>
+                <img id="prof-selfie-preview" class="kyc-preview" alt="Preview Selfie" style="display:none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
+              </div>
+              <input type="file" id="prof-selfie" accept="image/*" style="display:none;">
+            </div>
+          </div>
+          <span class="aform-err" id="prof-kyc-err" style="color:var(--red-600);font-size:.78rem;margin-bottom:.5rem;display:block;"></span>
+          <button type="submit" class="btn-kyc-submit" id="prof-kyc-btn" style="width:100%;background:var(--blue-600);color:white;border:none;padding:.7rem;border-radius:8px;font-weight:700;">Kirim Dokumen KYC</button>
+        </form>
+      </div>
+
+      <!-- Booking History -->
+      <div class="profile-section">
+        <h4 style="font-size:.85rem;font-weight:800;color:var(--slate-700);margin-bottom:.5rem;">
+          <i class="fa-solid fa-history"></i> Riwayat Sewa Saya
+        </h4>
+        <div class="cust-bookings-wrap" id="cust-bookings-list">
+          <p style="font-size:.82rem;color:var(--slate-400);text-align:center;padding:1.5rem 0;">Belum ada riwayat booking.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SIMULATED PAYMENT GATEWAY MODAL ===== -->
+  <div class="payment-overlay" id="payment-overlay"></div>
+  <div class="payment-modal" id="payment-modal" role="dialog" aria-modal="true">
+    <div class="pay-header" style="padding:1.25rem 1.5rem;border-bottom:1px solid var(--slate-200);display:flex;align-items:center;justify-content:space-between;">
+      <h3><i class="fa-solid fa-credit-card"></i> Gerbang Pembayaran</h3>
+      <button class="pay-close" id="pay-close" style="background:none;border:none;font-size:1.2rem;color:var(--slate-500);cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    
+    <div class="pay-body" style="padding:1.5rem;">
+      <div class="pay-amount-block" style="background:var(--blue-50);border:1px solid var(--blue-100);border-radius:10px;padding:1rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:0.9rem;font-weight:600;color:var(--slate-600);">Total Harus Dibayar:</span>
+        <h2 id="pay-amount-label" style="color:var(--blue-700);font-weight:800;font-size:1.35rem;">Rp 0</h2>
+      </div>
+
+      <div class="pay-countdown-block" style="font-size:0.82rem;color:var(--slate-500);display:flex;align-items:center;gap:0.4rem;margin-bottom:1.25rem;background:var(--red-50);border:1px solid var(--red-100);padding:0.6rem 0.8rem;border-radius:8px;">
+        <i class="fa-solid fa-clock-rotate-left" style="color:var(--red-600);"></i> Selesaikan pembayaran dalam <strong id="pay-timer" style="color:var(--red-600);font-weight:800;">05:00</strong>
+      </div>
+
+      <!-- Payment Methods -->
+      <div class="pay-methods">
+        <label style="font-size:.78rem;font-weight:800;color:var(--slate-700);margin-bottom:.5rem;display:block;">Metode Pembayaran:</label>
+        
+        <div class="pay-method-tabs" style="display:flex;gap:0.5rem;margin-bottom:1rem;">
+          <button class="pay-method-tab active" data-method="qris" style="flex:1;padding:0.5rem;border-radius:8px;border:1.5px solid var(--slate-200);background:white;font-weight:700;font-size:0.8rem;display:flex;align-items:center;justify-content:center;gap:0.4rem;"><i class="fa-solid fa-qrcode"></i> QRIS</button>
+          <button class="pay-method-tab" data-method="va" style="flex:1;padding:0.5rem;border-radius:8px;border:1.5px solid var(--slate-200);background:white;font-weight:700;font-size:0.8rem;display:flex;align-items:center;justify-content:center;gap:0.4rem;"><i class="fa-solid fa-bank"></i> Virtual Account</button>
+        </div>
+
+        <!-- QRIS Content -->
+        <div class="pay-method-content active" id="pay-method-qris">
+          <div style="display:flex;flex-direction:column;align-items:center;padding:1rem 0;">
+            <div class="pay-qr-mock" style="background:white;border:1px solid var(--slate-200);padding:1rem;border-radius:12px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;">
+              <i class="fa-solid fa-qrcode" style="font-size:7rem;color:var(--slate-800);"></i>
+              <div style="font-size:.65rem;font-weight:800;color:var(--blue-600);margin-top:.5rem;text-transform:uppercase;">RTK RENTAL QRIS MOCK</div>
+            </div>
+            <p style="font-size:.75rem;color:var(--slate-500);margin-top:.75rem;text-align:center;">
+              Scan kode QR di atas menggunakan aplikasi e-wallet Anda (GoPay, OVO, Dana, LinkAja) atau Mobile Banking.
+            </p>
+          </div>
+        </div>
+
+        <!-- VA Content -->
+        <div class="pay-method-content" id="pay-method-va" style="display:none;">
+          <div style="padding:1rem 0;">
+            <div style="background:var(--slate-50);border:1.5px dashed var(--slate-200);border-radius:10px;padding:1rem;margin-bottom:1rem;text-align:center;">
+              <div style="font-size:.78rem;color:var(--slate-500);margin-bottom:.3rem;">Bank Transfer / Virtual Account:</div>
+              <strong style="font-size:1.15rem;letter-spacing:1px;color:var(--blue-600);" id="pay-va-number">8830 0812 3456 7890</strong>
+              <div style="font-size:.72rem;color:var(--slate-400);margin-top:.3rem;">Penyedia: Bank Mandiri (RTK Rental)</div>
+            </div>
+            <p style="font-size:.75rem;color:var(--slate-500);text-align:center;">
+              Salin nomor Virtual Account di atas dan lakukan transfer melalui internet/mobile banking.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Simulation -->
+      <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:.5rem;">
+        <button type="button" class="btn-pay-success" id="pay-simulate-btn" style="width:100%;background:var(--green-600);color:white;border:none;padding:0.75rem;border-radius:8px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:0.4rem;box-shadow:0 4px 12px rgba(22,163,74,0.25);"><i class="fa-solid fa-circle-check"></i> Simulasikan Pembayaran Berhasil</button>
+        <button type="button" class="btn-pay-cancel" id="pay-cancel-btn" style="width:100%;background:none;border:none;padding:0.5rem;color:var(--slate-500);font-weight:600;">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="data/products.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

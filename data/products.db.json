@@ -1,0 +1,1122 @@
+[
+  {
+    "id": "prod-3fe4720c",
+    "name": "Kamera Cetak Instan Hitam Putih",
+    "category": "kamera-digital",
+    "normalPrice": 150000,
+    "salePrice": 123000,
+    "imageUrl": "assets/kamera-cetak-instan-hitam-putih/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/kamera-cetak-instan-hitam-putih/detail_1.png"
+    ]
+  },
+  {
+    "id": "prod-fe435f51",
+    "name": "Retro Flip Screen Mini Camera (1982)",
+    "category": "kamera-digital",
+    "normalPrice": 100000,
+    "salePrice": 75000,
+    "imageUrl": "assets/retro-flip-screen-mini-camera-1982/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/retro-flip-screen-mini-camera-1982/detail_1.jpg",
+      "assets/retro-flip-screen-mini-camera-1982/detail_2.jpg",
+      "assets/retro-flip-screen-mini-camera-1982/detail_3.png"
+    ]
+  },
+  {
+    "id": "prod-be2234ee",
+    "name": "Retro Thumb Camera (1984)",
+    "category": "kamera-digital",
+    "normalPrice": 50000,
+    "salePrice": 45000,
+    "imageUrl": "assets/retro-thumb-camera-1984/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/retro-thumb-camera-1984/detail_1.png",
+      "assets/retro-thumb-camera-1984/detail_2.jpg",
+      "assets/retro-thumb-camera-1984/detail_3.jpg"
+    ]
+  },
+  {
+    "id": "prod-5f58dcad",
+    "name": "Panasonic DMC Lumix LZ20",
+    "category": "kamera-digital",
+    "normalPrice": 130000,
+    "salePrice": 100000,
+    "imageUrl": "assets/panasonic-dmc-lumix-lz20/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/panasonic-dmc-lumix-lz20/detail_1.jpg",
+      "assets/panasonic-dmc-lumix-lz20/detail_2.png",
+      "assets/panasonic-dmc-lumix-lz20/detail_3.jpg",
+      "assets/panasonic-dmc-lumix-lz20/detail_4.jpg",
+      "assets/panasonic-dmc-lumix-lz20/detail_5.jpg",
+      "assets/panasonic-dmc-lumix-lz20/detail_6.jpg"
+    ]
+  },
+  {
+    "id": "prod-fd2ad1c2",
+    "name": "Samsung PL120 (Selfie Edition)",
+    "category": "kamera-digital",
+    "normalPrice": 95000,
+    "salePrice": 75000,
+    "imageUrl": "assets/samsung-pl120-selfie-edition/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/samsung-pl120-selfie-edition/detail_2.png",
+      "assets/samsung-pl120-selfie-edition/detail_3.jpg",
+      "assets/samsung-pl120-selfie-edition/detail_4.jpg",
+      "assets/samsung-pl120-selfie-edition/detail_6.jpg"
+    ]
+  },
+  {
+    "id": "prod-a8999675",
+    "name": "dji Action 2",
+    "category": "kamera-digital",
+    "normalPrice": 150000,
+    "salePrice": 123000,
+    "imageUrl": "assets/dji-action-2/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/dji-action-2/detail_1.jpg",
+      "assets/dji-action-2/detail_2.jpg",
+      "assets/dji-action-2/detail_3.png",
+      "assets/dji-action-2/detail_4.jpg",
+      "assets/dji-action-2/detail_5.jpg",
+      "assets/dji-action-2/detail_6.jpg",
+      "assets/dji-action-2/detail_7.jpg"
+    ]
+  },
+  {
+    "id": "prod-1d1ad942",
+    "name": "Samsung WB100 Prosumer",
+    "category": "kamera-digital",
+    "normalPrice": 125000,
+    "salePrice": 100000,
+    "imageUrl": "assets/samsung-wb100-prosumer/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/samsung-wb100-prosumer/detail_1.jpg",
+      "assets/samsung-wb100-prosumer/detail_2.jpg",
+      "assets/samsung-wb100-prosumer/detail_3.jpg",
+      "assets/samsung-wb100-prosumer/detail_5.png",
+      "assets/samsung-wb100-prosumer/detail_6.jpg",
+      "assets/samsung-wb100-prosumer/detail_7.jpg",
+      "assets/samsung-wb100-prosumer/detail_8.jpg"
+    ]
+  },
+  {
+    "id": "prod-e3f85c1b",
+    "name": "Sony MHS-PM5",
+    "category": "kamera-digital",
+    "normalPrice": 75000,
+    "salePrice": 50000,
+    "imageUrl": "assets/sony-mhs-pm5/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/sony-mhs-pm5/detail_1.jpg",
+      "assets/sony-mhs-pm5/detail_2.jpg",
+      "assets/sony-mhs-pm5/detail_3.jpg",
+      "assets/sony-mhs-pm5/detail_4.png",
+      "assets/sony-mhs-pm5/detail_5.jpg",
+      "assets/sony-mhs-pm5/detail_6.jpg",
+      "assets/sony-mhs-pm5/detail_7.jpg"
+    ]
+  },
+  {
+    "id": "prod-59603889",
+    "name": "Panasonic NV-GS330 LEICA",
+    "category": "kamera-digital",
+    "normalPrice": 200000,
+    "salePrice": 175000,
+    "imageUrl": "assets/panasonic-nv-gs330-leica/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/panasonic-nv-gs330-leica/detail_1.jpg",
+      "assets/panasonic-nv-gs330-leica/detail_2.jpg",
+      "assets/panasonic-nv-gs330-leica/detail_3.png",
+      "assets/panasonic-nv-gs330-leica/detail_4.jpg",
+      "assets/panasonic-nv-gs330-leica/detail_5.jpg",
+      "assets/panasonic-nv-gs330-leica/detail_7.jpg",
+      "assets/panasonic-nv-gs330-leica/detail_8.jpg",
+      "assets/panasonic-nv-gs330-leica/detail_11.jpg",
+      "assets/panasonic-nv-gs330-leica/detail_12.jpg"
+    ]
+  },
+  {
+    "id": "prod-c5fb93c6",
+    "name": "Samsung WB710",
+    "category": "kamera-digital",
+    "normalPrice": 100000,
+    "salePrice": 75000,
+    "imageUrl": "assets/samsung-wb710/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/samsung-wb710/detail_1.jpg",
+      "assets/samsung-wb710/detail_2.png",
+      "assets/samsung-wb710/detail_3.jpg",
+      "assets/samsung-wb710/detail_4.jpg",
+      "assets/samsung-wb710/detail_5.jpg",
+      "assets/samsung-wb710/detail_6.jpg",
+      "assets/samsung-wb710/detail_7.jpg"
+    ]
+  },
+  {
+    "id": "prod-67dc5ab1",
+    "name": "GoPro Session Dome",
+    "category": "action-cam",
+    "normalPrice": 175000,
+    "salePrice": 150000,
+    "imageUrl": "assets/gopro-session-dome/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/gopro-session-dome/detail_1.jpg",
+      "assets/gopro-session-dome/detail_2.png",
+      "assets/gopro-session-dome/detail_3.jpg",
+      "assets/gopro-session-dome/detail_4.jpg",
+      "assets/gopro-session-dome/detail_5.jpg"
+    ]
+  },
+  {
+    "id": "prod-e4c0defe",
+    "name": "Kamera Gimbal dengan Kipas Genggam",
+    "category": "action-cam",
+    "normalPrice": 100000,
+    "salePrice": 75000,
+    "imageUrl": "assets/kamera-gimbal-dengan-kipas-genggam/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/kamera-gimbal-dengan-kipas-genggam/detail_1.jpg",
+      "assets/kamera-gimbal-dengan-kipas-genggam/detail_2.png"
+    ]
+  },
+  {
+    "id": "prod-d79fbcae",
+    "name": "Samsung Gear 360 (2016)",
+    "category": "action-cam",
+    "normalPrice": 150000,
+    "salePrice": 125000,
+    "imageUrl": "assets/samsung-gear-360-2016/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/samsung-gear-360-2016/detail_1.jpg",
+      "assets/samsung-gear-360-2016/detail_2.jpg",
+      "assets/samsung-gear-360-2016/detail_3.jpg",
+      "assets/samsung-gear-360-2016/detail_4.png"
+    ]
+  },
+  {
+    "id": "prod-561bc8fb",
+    "name": "Motovlog Camera (GoPro, Samsung, Panasonic)",
+    "category": "action-cam",
+    "normalPrice": 150000,
+    "salePrice": 0,
+    "imageUrl": "assets/motovlog-camera-gopro-samsung-panasonic/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/motovlog-camera-gopro-samsung-panasonic/detail_1.jpg",
+      "assets/motovlog-camera-gopro-samsung-panasonic/detail_2.jpg",
+      "assets/motovlog-camera-gopro-samsung-panasonic/detail_3.png",
+      "assets/motovlog-camera-gopro-samsung-panasonic/detail_4.jpg",
+      "assets/motovlog-camera-gopro-samsung-panasonic/detail_5.jpg",
+      "assets/motovlog-camera-gopro-samsung-panasonic/detail_6.jpg",
+      "assets/motovlog-camera-gopro-samsung-panasonic/detail_7.jpg"
+    ]
+  },
+  {
+    "id": "prod-cdedf783",
+    "name": "Insta360 Nano",
+    "category": "action-cam",
+    "normalPrice": 175000,
+    "salePrice": 150000,
+    "imageUrl": "assets/insta360-nano/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/insta360-nano/detail_1.png",
+      "assets/insta360-nano/detail_2.jpg"
+    ]
+  },
+  {
+    "id": "prod-855890ba",
+    "name": "Nexpro Dream 007s (Selfie)",
+    "category": "action-cam",
+    "normalPrice": 150000,
+    "salePrice": 123000,
+    "imageUrl": "assets/nexpro-dream-007s-selfie/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/nexpro-dream-007s-selfie/detail_3.jpg",
+      "assets/nexpro-dream-007s-selfie/detail_4.png",
+      "assets/nexpro-dream-007s-selfie/detail_5.jpg",
+      "assets/nexpro-dream-007s-selfie/detail_6.jpg",
+      "assets/nexpro-dream-007s-selfie/detail_7.jpg",
+      "assets/nexpro-dream-007s-selfie/detail_8.jpg"
+    ]
+  },
+  {
+    "id": "prod-47342824",
+    "name": "Nexpro Dream 007",
+    "category": "action-cam",
+    "normalPrice": 150000,
+    "salePrice": 100000,
+    "imageUrl": "assets/nexpro-dream-007/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/nexpro-dream-007/detail_2.jpg",
+      "assets/nexpro-dream-007/detail_3.png",
+      "assets/nexpro-dream-007/detail_4.jpg",
+      "assets/nexpro-dream-007/detail_5.jpg",
+      "assets/nexpro-dream-007/detail_6.jpg",
+      "assets/nexpro-dream-007/detail_7.jpg",
+      "assets/nexpro-dream-007/detail_8.jpg",
+      "assets/nexpro-dream-007/detail_9.jpg"
+    ]
+  },
+  {
+    "id": "prod-ea385c16",
+    "name": "Head Camera and Light (Kamera Senter Kepala)",
+    "category": "action-cam",
+    "normalPrice": 150000,
+    "salePrice": 123000,
+    "imageUrl": "assets/head-camera-and-light-kamera-senter-kepala/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/head-camera-and-light-kamera-senter-kepala/detail_2.jpg",
+      "assets/head-camera-and-light-kamera-senter-kepala/detail_4.png",
+      "assets/head-camera-and-light-kamera-senter-kepala/detail_5.jpg",
+      "assets/head-camera-and-light-kamera-senter-kepala/detail_6.jpg",
+      "assets/head-camera-and-light-kamera-senter-kepala/detail_7.jpg",
+      "assets/head-camera-and-light-kamera-senter-kepala/detail_8.jpg",
+      "assets/head-camera-and-light-kamera-senter-kepala/detail_10.jpg"
+    ]
+  },
+  {
+    "id": "prod-aaec84f5",
+    "name": "insta360 Go",
+    "category": "action-cam",
+    "normalPrice": 150000,
+    "salePrice": 123000,
+    "imageUrl": "assets/insta360-go/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/insta360-go/detail_1.png",
+      "assets/insta360-go/detail_2.jpg"
+    ]
+  },
+  {
+    "id": "prod-2f82d068",
+    "name": "Brica B-PRO 5 Alpha AE2X",
+    "category": "action-cam",
+    "normalPrice": 150000,
+    "salePrice": 100000,
+    "imageUrl": "assets/brica-b-pro-5-alpha-ae2x/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/brica-b-pro-5-alpha-ae2x/detail_1.jpg",
+      "assets/brica-b-pro-5-alpha-ae2x/detail_2.jpg",
+      "assets/brica-b-pro-5-alpha-ae2x/detail_3.jpg",
+      "assets/brica-b-pro-5-alpha-ae2x/detail_4.png",
+      "assets/brica-b-pro-5-alpha-ae2x/detail_5.jpg",
+      "assets/brica-b-pro-5-alpha-ae2x/detail_6.jpg",
+      "assets/brica-b-pro-5-alpha-ae2x/detail_7.jpg",
+      "assets/brica-b-pro-5-alpha-ae2x/detail_8.jpg",
+      "assets/brica-b-pro-5-alpha-ae2x/detail_9.jpg"
+    ]
+  },
+  {
+    "id": "prod-cc997f09",
+    "name": "GoPro HERO4 Session",
+    "category": "action-cam",
+    "normalPrice": 150000,
+    "salePrice": 123000,
+    "imageUrl": "assets/gopro-hero4-session/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/gopro-hero4-session/detail_1.png"
+    ]
+  },
+  {
+    "id": "prod-23e54b20",
+    "name": "Radio Control Car with Full HD Camera",
+    "category": "action-cam",
+    "normalPrice": 125000,
+    "salePrice": 0,
+    "imageUrl": "assets/radio-control-car-with-full-hd-camera/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/radio-control-car-with-full-hd-camera/detail_1.png",
+      "assets/radio-control-car-with-full-hd-camera/detail_2.jpg",
+      "assets/radio-control-car-with-full-hd-camera/detail_3.jpg",
+      "assets/radio-control-car-with-full-hd-camera/detail_4.jpg",
+      "assets/radio-control-car-with-full-hd-camera/detail_5.jpg",
+      "assets/radio-control-car-with-full-hd-camera/detail_6.jpg"
+    ]
+  },
+  {
+    "id": "prod-7a813fa7",
+    "name": "Ezviz S5",
+    "category": "action-cam",
+    "normalPrice": 150000,
+    "salePrice": 123000,
+    "imageUrl": "assets/ezviz-s5/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/ezviz-s5/detail_1.jpg",
+      "assets/ezviz-s5/detail_2.jpg",
+      "assets/ezviz-s5/detail_3.png"
+    ]
+  },
+  {
+    "id": "prod-af183eda",
+    "name": "Kamera Kacamata POV Olahraga Panasonic",
+    "category": "action-cam",
+    "normalPrice": 150000,
+    "salePrice": 123000,
+    "imageUrl": "assets/kamera-kacamata-pov-olahraga-panasonic/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/kamera-kacamata-pov-olahraga-panasonic/detail_1.png"
+    ]
+  },
+  {
+    "id": "prod-2ed1edb0",
+    "name": "SONY FDR-X3000",
+    "category": "action-cam",
+    "normalPrice": 200000,
+    "salePrice": 175000,
+    "imageUrl": "assets/sony-fdr-x3000/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/sony-fdr-x3000/detail_1.jpeg",
+      "assets/sony-fdr-x3000/detail_2.png",
+      "assets/sony-fdr-x3000/detail_3.jpg",
+      "assets/sony-fdr-x3000/detail_4.jpg",
+      "assets/sony-fdr-x3000/detail_5.jpg",
+      "assets/sony-fdr-x3000/detail_6.jpg"
+    ]
+  },
+  {
+    "id": "prod-1ea5efdd",
+    "name": "Canon EOS 80D",
+    "category": "dslr",
+    "normalPrice": 345000,
+    "salePrice": 0,
+    "imageUrl": "assets/canon-eos-80d/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/canon-eos-80d/detail_1.png",
+      "assets/canon-eos-80d/detail_2.jpg"
+    ]
+  },
+  {
+    "id": "prod-ba03ddcc",
+    "name": "Canon EOS 40D",
+    "category": "dslr",
+    "normalPrice": 225000,
+    "salePrice": 200000,
+    "imageUrl": "assets/canon-eos-40d/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/canon-eos-40d/detail_1.jpg",
+      "assets/canon-eos-40d/detail_2.png",
+      "assets/canon-eos-40d/detail_3.jpg"
+    ]
+  },
+  {
+    "id": "prod-7c73eb40",
+    "name": "Canon EOS Kiss X50",
+    "category": "dslr",
+    "normalPrice": 155000,
+    "salePrice": 123000,
+    "imageUrl": "assets/canon-eos-kiss-x50/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/canon-eos-kiss-x50/detail_1.jpg",
+      "assets/canon-eos-kiss-x50/detail_2.jpg",
+      "assets/canon-eos-kiss-x50/detail_3.jpg",
+      "assets/canon-eos-kiss-x50/detail_4.jpg",
+      "assets/canon-eos-kiss-x50/detail_5.png",
+      "assets/canon-eos-kiss-x50/detail_6.jpg",
+      "assets/canon-eos-kiss-x50/detail_7.jpg",
+      "assets/canon-eos-kiss-x50/detail_8.jpg",
+      "assets/canon-eos-kiss-x50/detail_9.jpg",
+      "assets/canon-eos-kiss-x50/detail_10.jpg",
+      "assets/canon-eos-kiss-x50/detail_11.jpg"
+    ]
+  },
+  {
+    "id": "prod-e6894503",
+    "name": "Canon EOS 500D",
+    "category": "dslr",
+    "normalPrice": 185000,
+    "salePrice": 150000,
+    "imageUrl": "assets/canon-eos-500d/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/canon-eos-500d/detail_1.png",
+      "assets/canon-eos-500d/detail_2.jpg"
+    ]
+  },
+  {
+    "id": "prod-3f0dcb6d",
+    "name": "Samsung GX-1L",
+    "category": "dslr",
+    "normalPrice": 95000,
+    "salePrice": 66000,
+    "imageUrl": "assets/samsung-gx-1l/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/samsung-gx-1l/detail_1.jpg",
+      "assets/samsung-gx-1l/detail_2.jpg",
+      "assets/samsung-gx-1l/detail_3.jpg",
+      "assets/samsung-gx-1l/detail_4.jpg",
+      "assets/samsung-gx-1l/detail_5.jpg",
+      "assets/samsung-gx-1l/detail_6.png",
+      "assets/samsung-gx-1l/detail_7.jpg"
+    ]
+  },
+  {
+    "id": "prod-5ece1dc2",
+    "name": "Samsung NX11",
+    "category": "mirrorless",
+    "normalPrice": 175000,
+    "salePrice": 150000,
+    "imageUrl": "assets/samsung-nx11/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/samsung-nx11/detail_1.jpg",
+      "assets/samsung-nx11/detail_2.jpg",
+      "assets/samsung-nx11/detail_3.jpg",
+      "assets/samsung-nx11/detail_4.png",
+      "assets/samsung-nx11/detail_5.jpg",
+      "assets/samsung-nx11/detail_6.jpg"
+    ]
+  },
+  {
+    "id": "prod-045a6254",
+    "name": "Samsung NX20",
+    "category": "mirrorless",
+    "normalPrice": 250000,
+    "salePrice": 200000,
+    "imageUrl": "assets/samsung-nx20/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/samsung-nx20/detail_2.jpg",
+      "assets/samsung-nx20/detail_3.jpg",
+      "assets/samsung-nx20/detail_4.jpg",
+      "assets/samsung-nx20/detail_5.png",
+      "assets/samsung-nx20/detail_6.jpg",
+      "assets/samsung-nx20/detail_7.jpg",
+      "assets/samsung-nx20/detail_8.jpg",
+      "assets/samsung-nx20/detail_9.jpg",
+      "assets/samsung-nx20/detail_10.jpg",
+      "assets/samsung-nx20/detail_11.jpg",
+      "assets/samsung-nx20/detail_12.jpg",
+      "assets/samsung-nx20/detail_13.jpg",
+      "assets/samsung-nx20/detail_14.jpg"
+    ]
+  },
+  {
+    "id": "prod-705b43d5",
+    "name": "Samsung NX Mini",
+    "category": "mirrorless",
+    "normalPrice": 150000,
+    "salePrice": 123000,
+    "imageUrl": "assets/samsung-nx-mini/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/samsung-nx-mini/detail_1.jpg",
+      "assets/samsung-nx-mini/detail_2.jpg",
+      "assets/samsung-nx-mini/detail_3.jpg",
+      "assets/samsung-nx-mini/detail_4.png",
+      "assets/samsung-nx-mini/detail_5.jpg",
+      "assets/samsung-nx-mini/detail_6.jpg",
+      "assets/samsung-nx-mini/detail_7.jpg",
+      "assets/samsung-nx-mini/detail_8.jpg",
+      "assets/samsung-nx-mini/detail_9.jpg",
+      "assets/samsung-nx-mini/detail_10.jpg",
+      "assets/samsung-nx-mini/detail_11.jpg",
+      "assets/samsung-nx-mini/detail_12.jpg",
+      "assets/samsung-nx-mini/detail_13.jpg",
+      "assets/samsung-nx-mini/detail_14.jpg",
+      "assets/samsung-nx-mini/detail_15.jpg"
+    ]
+  },
+  {
+    "id": "prod-c5c8899b",
+    "name": "Samsung NX500",
+    "category": "mirrorless",
+    "normalPrice": 275000,
+    "salePrice": 250000,
+    "imageUrl": "assets/samsung-nx500/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/samsung-nx500/detail_1.jpg",
+      "assets/samsung-nx500/detail_3.jpg",
+      "assets/samsung-nx500/detail_4.png",
+      "assets/samsung-nx500/detail_5.jpg",
+      "assets/samsung-nx500/detail_6.jpg",
+      "assets/samsung-nx500/detail_7.jpg",
+      "assets/samsung-nx500/detail_8.jpg"
+    ]
+  },
+  {
+    "id": "prod-3f55414b",
+    "name": "Nikon 1 J1",
+    "category": "mirrorless",
+    "normalPrice": 125000,
+    "salePrice": 100000,
+    "imageUrl": "assets/nikon-1-j1/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/nikon-1-j1/detail_1.jpg",
+      "assets/nikon-1-j1/detail_2.jpg",
+      "assets/nikon-1-j1/detail_3.png",
+      "assets/nikon-1-j1/detail_4.jpg",
+      "assets/nikon-1-j1/detail_5.jpg",
+      "assets/nikon-1-j1/detail_6.jpg",
+      "assets/nikon-1-j1/detail_7.jpg"
+    ]
+  },
+  {
+    "id": "prod-ac9b72af",
+    "name": "SONY SPK HCE AX40",
+    "category": "camcorder",
+    "normalPrice": 450000,
+    "salePrice": 432000,
+    "imageUrl": "assets/sony-spk-hce-ax40/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/sony-spk-hce-ax40/detail_1.png",
+      "assets/sony-spk-hce-ax40/detail_2.jpg"
+    ]
+  },
+  {
+    "id": "prod-b88f9d42",
+    "name": "SONY FDR AX40",
+    "category": "camcorder",
+    "normalPrice": 400000,
+    "salePrice": 350000,
+    "imageUrl": "assets/sony-fdr-ax40/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/sony-fdr-ax40/detail_1.jpg",
+      "assets/sony-fdr-ax40/detail_2.png",
+      "assets/sony-fdr-ax40/detail_3.jpg",
+      "assets/sony-fdr-ax40/detail_4.jpg"
+    ]
+  },
+  {
+    "id": "prod-8117310d",
+    "name": "Pocket Gimbal Camera",
+    "category": "camcorder",
+    "normalPrice": 300000,
+    "salePrice": 250000,
+    "imageUrl": "assets/pocket-gimbal-camera/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/pocket-gimbal-camera/detail_1.png",
+      "assets/pocket-gimbal-camera/detail_2.jpg",
+      "assets/pocket-gimbal-camera/detail_3.jpg",
+      "assets/pocket-gimbal-camera/detail_4.jpg",
+      "assets/pocket-gimbal-camera/detail_5.jpg",
+      "assets/pocket-gimbal-camera/detail_6.jpg"
+    ]
+  },
+  {
+    "id": "prod-52b20117",
+    "name": "SONY PMW-100 XDCAM",
+    "category": "camcorder",
+    "normalPrice": 400000,
+    "salePrice": 300000,
+    "imageUrl": "assets/sony-pmw-100-xdcam/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/sony-pmw-100-xdcam/detail_1.jpg",
+      "assets/sony-pmw-100-xdcam/detail_2.png"
+    ]
+  },
+  {
+    "id": "prod-444950b7",
+    "name": "Panasonic  WX970M",
+    "category": "camcorder",
+    "normalPrice": 250000,
+    "salePrice": 0,
+    "imageUrl": "assets/panasonic-wx970m/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/panasonic-wx970m/detail_1.png"
+    ]
+  },
+  {
+    "id": "prod-efb97742",
+    "name": "Canon XL1s 2K/4K Live Streaming",
+    "category": "camcorder",
+    "normalPrice": 195000,
+    "salePrice": 150000,
+    "imageUrl": "assets/canon-xl1s-2k-4k-live-streaming/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/canon-xl1s-2k-4k-live-streaming/detail_1.png",
+      "assets/canon-xl1s-2k-4k-live-streaming/detail_2.jpg",
+      "assets/canon-xl1s-2k-4k-live-streaming/detail_3.jpg",
+      "assets/canon-xl1s-2k-4k-live-streaming/detail_4.jpg",
+      "assets/canon-xl1s-2k-4k-live-streaming/detail_5.jpg",
+      "assets/canon-xl1s-2k-4k-live-streaming/detail_6.jpg",
+      "assets/canon-xl1s-2k-4k-live-streaming/detail_7.jpg"
+    ]
+  },
+  {
+    "id": "prod-7fb1e383",
+    "name": "Panasonic Night Shot IR Infrared Camera",
+    "category": "camcorder",
+    "normalPrice": 225000,
+    "salePrice": 200000,
+    "imageUrl": "assets/panasonic-night-shot-ir-infrared-camera/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/panasonic-night-shot-ir-infrared-camera/detail_1.jpg",
+      "assets/panasonic-night-shot-ir-infrared-camera/detail_2.jpg",
+      "assets/panasonic-night-shot-ir-infrared-camera/detail_3.png",
+      "assets/panasonic-night-shot-ir-infrared-camera/detail_4.jpg",
+      "assets/panasonic-night-shot-ir-infrared-camera/detail_5.jpg"
+    ]
+  },
+  {
+    "id": "prod-b14593fb",
+    "name": "Panasonic HDC-MDH2",
+    "category": "camcorder",
+    "normalPrice": 300000,
+    "salePrice": 250000,
+    "imageUrl": "assets/panasonic-hdc-mdh2/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/panasonic-hdc-mdh2/detail_1.png",
+      "assets/panasonic-hdc-mdh2/detail_2.jpg"
+    ]
+  },
+  {
+    "id": "prod-90e5f889",
+    "name": "Panasonic HC-W585 Twin Cam",
+    "category": "camcorder",
+    "normalPrice": 200000,
+    "salePrice": 195000,
+    "imageUrl": "assets/panasonic-hc-w585-twin-cam/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/panasonic-hc-w585-twin-cam/detail_1.png",
+      "assets/panasonic-hc-w585-twin-cam/detail_2.jpg"
+    ]
+  },
+  {
+    "id": "prod-53258316",
+    "name": "Samsung NX 50-200mm Lens (White)",
+    "category": "lensa",
+    "normalPrice": 75000,
+    "salePrice": 50000,
+    "imageUrl": "assets/samsung-nx-50-200mm-lens-white/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/samsung-nx-50-200mm-lens-white/detail_1.jpg",
+      "assets/samsung-nx-50-200mm-lens-white/detail_2.png"
+    ]
+  },
+  {
+    "id": "prod-c0909f8f",
+    "name": "Tamron 18-270mm for SONY (Manual Focus)",
+    "category": "lensa",
+    "normalPrice": 100000,
+    "salePrice": 0,
+    "imageUrl": "assets/tamron-18-270mm-for-sony-manual-focus/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/tamron-18-270mm-for-sony-manual-focus/detail_1.png",
+      "assets/tamron-18-270mm-for-sony-manual-focus/detail_2.jpg",
+      "assets/tamron-18-270mm-for-sony-manual-focus/detail_3.jpg"
+    ]
+  },
+  {
+    "id": "prod-7bd78e15",
+    "name": "Fixed/Prime Lens 55mm SONY e-Mount",
+    "category": "lensa",
+    "normalPrice": 75000,
+    "salePrice": 0,
+    "imageUrl": "assets/fixed-prime-lens-55mm-sony-e-mount/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/fixed-prime-lens-55mm-sony-e-mount/detail_1.jpg",
+      "assets/fixed-prime-lens-55mm-sony-e-mount/detail_2.jpg",
+      "assets/fixed-prime-lens-55mm-sony-e-mount/detail_3.png"
+    ]
+  },
+  {
+    "id": "prod-a6a3c887",
+    "name": "SONY DSC QX10",
+    "category": "lensa",
+    "normalPrice": 75000,
+    "salePrice": 0,
+    "imageUrl": "assets/sony-dsc-qx10/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/sony-dsc-qx10/detail_1.jpg",
+      "assets/sony-dsc-qx10/detail_2.jpg",
+      "assets/sony-dsc-qx10/detail_3.png",
+      "assets/sony-dsc-qx10/detail_4.jpg",
+      "assets/sony-dsc-qx10/detail_5.jpg",
+      "assets/sony-dsc-qx10/detail_6.jpg",
+      "assets/sony-dsc-qx10/detail_7.jpg"
+    ]
+  },
+  {
+    "id": "prod-16e71cfc",
+    "name": "Lensa SONY 18-55mm a/e-Mount",
+    "category": "lensa",
+    "normalPrice": 50000,
+    "salePrice": 0,
+    "imageUrl": "assets/lensa-sony-18-55mm-a-e-mount/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/lensa-sony-18-55mm-a-e-mount/detail_1.png",
+      "assets/lensa-sony-18-55mm-a-e-mount/detail_2.jpg",
+      "assets/lensa-sony-18-55mm-a-e-mount/detail_3.jpg",
+      "assets/lensa-sony-18-55mm-a-e-mount/detail_4.jpg",
+      "assets/lensa-sony-18-55mm-a-e-mount/detail_5.jpg"
+    ]
+  },
+  {
+    "id": "prod-9b42861c",
+    "name": "Nikon AF 70-300mm f/4-5.6G Nikkor",
+    "category": "lensa",
+    "normalPrice": 75000,
+    "salePrice": 0,
+    "imageUrl": "assets/nikon-af-70-300mm-f-4-5-6g-nikkor/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/nikon-af-70-300mm-f-4-5-6g-nikkor/detail_1.png",
+      "assets/nikon-af-70-300mm-f-4-5-6g-nikkor/detail_2.jpg"
+    ]
+  },
+  {
+    "id": "prod-8753700a",
+    "name": "Tokina Manual Lens 70-210mm",
+    "category": "lensa",
+    "normalPrice": 75000,
+    "salePrice": 50000,
+    "imageUrl": "assets/tokina-manual-lens-70-210mm/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/tokina-manual-lens-70-210mm/detail_1.jpg",
+      "assets/tokina-manual-lens-70-210mm/detail_2.jpg",
+      "assets/tokina-manual-lens-70-210mm/detail_3.png",
+      "assets/tokina-manual-lens-70-210mm/detail_4.jpg",
+      "assets/tokina-manual-lens-70-210mm/detail_5.jpg",
+      "assets/tokina-manual-lens-70-210mm/detail_6.jpg",
+      "assets/tokina-manual-lens-70-210mm/detail_7.jpg",
+      "assets/tokina-manual-lens-70-210mm/detail_8.jpg"
+    ]
+  },
+  {
+    "id": "prod-ce67c1bb",
+    "name": "Tamron Lens 18-250mm for Canon",
+    "category": "lensa",
+    "normalPrice": 100000,
+    "salePrice": 0,
+    "imageUrl": "assets/tamron-lens-18-250mm-for-canon/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/tamron-lens-18-250mm-for-canon/detail_1.png",
+      "assets/tamron-lens-18-250mm-for-canon/detail_2.jpg",
+      "assets/tamron-lens-18-250mm-for-canon/detail_3.jpg"
+    ]
+  },
+  {
+    "id": "prod-3a980440",
+    "name": "Samsung 50-200mm Lens",
+    "category": "lensa",
+    "normalPrice": 75000,
+    "salePrice": 50000,
+    "imageUrl": "assets/samsung-50-200mm-lens/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/samsung-50-200mm-lens/detail_1.png",
+      "assets/samsung-50-200mm-lens/detail_2.jpg",
+      "assets/samsung-50-200mm-lens/detail_3.jpg"
+    ]
+  },
+  {
+    "id": "prod-a18f569c",
+    "name": "Lensa SONY 50-200mm a/e-Mount",
+    "category": "lensa",
+    "normalPrice": 100000,
+    "salePrice": 0,
+    "imageUrl": "assets/lensa-sony-50-200mm-a-e-mount/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/lensa-sony-50-200mm-a-e-mount/detail_1.jpeg",
+      "assets/lensa-sony-50-200mm-a-e-mount/detail_2.png",
+      "assets/lensa-sony-50-200mm-a-e-mount/detail_3.jpeg",
+      "assets/lensa-sony-50-200mm-a-e-mount/detail_4.jpg"
+    ]
+  },
+  {
+    "id": "prod-324f3ecc",
+    "name": "EZVIZ CB-1 Built-in Battery CCTV",
+    "category": "aksesoris",
+    "normalPrice": 95000,
+    "salePrice": 75000,
+    "imageUrl": "assets/ezviz-cb-1-built-in-battery-cctv/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/ezviz-cb-1-built-in-battery-cctv/detail_1.jpg",
+      "assets/ezviz-cb-1-built-in-battery-cctv/detail_2.jpg",
+      "assets/ezviz-cb-1-built-in-battery-cctv/detail_3.png",
+      "assets/ezviz-cb-1-built-in-battery-cctv/detail_4.jpg",
+      "assets/ezviz-cb-1-built-in-battery-cctv/detail_5.jpg",
+      "assets/ezviz-cb-1-built-in-battery-cctv/detail_6.jpg"
+    ]
+  },
+  {
+    "id": "prod-63429374",
+    "name": "Panasonic DMW-LVF1",
+    "category": "aksesoris",
+    "normalPrice": 50000,
+    "salePrice": 0,
+    "imageUrl": "assets/panasonic-dmw-lvf1/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/panasonic-dmw-lvf1/detail_1.png",
+      "assets/panasonic-dmw-lvf1/detail_2.jpg"
+    ]
+  },
+  {
+    "id": "prod-890c1023",
+    "name": "Wireless Microphone 3 Modul",
+    "category": "aksesoris",
+    "normalPrice": 65000,
+    "salePrice": 55000,
+    "imageUrl": "assets/wireless-microphone-3-modul/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/wireless-microphone-3-modul/detail_1.png",
+      "assets/wireless-microphone-3-modul/detail_2.jpg"
+    ]
+  },
+  {
+    "id": "prod-54e2fdd2",
+    "name": "Canon NB-2LH Battery Pack",
+    "category": "aksesoris",
+    "normalPrice": 50000,
+    "salePrice": 25000,
+    "imageUrl": "assets/canon-nb-2lh-battery-pack/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/canon-nb-2lh-battery-pack/detail_1.png",
+      "assets/canon-nb-2lh-battery-pack/detail_2.jpg"
+    ]
+  },
+  {
+    "id": "prod-16941b29",
+    "name": "Baterai Takara LP-E6NH dengan Port USB-C",
+    "category": "aksesoris",
+    "normalPrice": 50000,
+    "salePrice": 0,
+    "imageUrl": "assets/baterai-takara-lp-e6nh-dengan-port-usb-c/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/baterai-takara-lp-e6nh-dengan-port-usb-c/detail_1.png",
+      "assets/baterai-takara-lp-e6nh-dengan-port-usb-c/detail_2.jpg"
+    ]
+  },
+  {
+    "id": "prod-ff68f09c",
+    "name": "Video Light 120 LED + Filter Warna",
+    "category": "aksesoris",
+    "normalPrice": 35000,
+    "salePrice": 25000,
+    "imageUrl": "assets/video-light-120-led-filter-warna/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/video-light-120-led-filter-warna/detail_1.png",
+      "assets/video-light-120-led-filter-warna/detail_2.jpg"
+    ]
+  },
+  {
+    "id": "prod-50914274",
+    "name": "VUX BEEG UP10 Lavalier Microphone",
+    "category": "aksesoris",
+    "normalPrice": 45000,
+    "salePrice": 0,
+    "imageUrl": "assets/vux-beeg-up10-lavalier-microphone/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/vux-beeg-up10-lavalier-microphone/detail_1.png",
+      "assets/vux-beeg-up10-lavalier-microphone/detail_2.jpg",
+      "assets/vux-beeg-up10-lavalier-microphone/detail_3.jpg",
+      "assets/vux-beeg-up10-lavalier-microphone/detail_4.jpg"
+    ]
+  },
+  {
+    "id": "prod-eff0f317",
+    "name": "Shotgun Microphone",
+    "category": "aksesoris",
+    "normalPrice": 50000,
+    "salePrice": 25000,
+    "imageUrl": "assets/shotgun-microphone/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/shotgun-microphone/detail_1.jpg",
+      "assets/shotgun-microphone/detail_2.jpg",
+      "assets/shotgun-microphone/detail_3.png",
+      "assets/shotgun-microphone/detail_4.jpg"
+    ]
+  },
+  {
+    "id": "prod-41f37439",
+    "name": "SONY SGR1 Shooting Grip/Mini Tripod",
+    "category": "aksesoris",
+    "normalPrice": 50000,
+    "salePrice": 0,
+    "imageUrl": "assets/sony-sgr1-shooting-grip-mini-tripod/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/sony-sgr1-shooting-grip-mini-tripod/detail_1.jpg",
+      "assets/sony-sgr1-shooting-grip-mini-tripod/detail_2.jpg",
+      "assets/sony-sgr1-shooting-grip-mini-tripod/detail_3.png"
+    ]
+  },
+  {
+    "id": "prod-0fe2a19e",
+    "name": "Fotopro NGA 54 Ballhead Monopod",
+    "category": "aksesoris",
+    "normalPrice": 45000,
+    "salePrice": 0,
+    "imageUrl": "assets/fotopro-nga-54-ballhead-monopod/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/fotopro-nga-54-ballhead-monopod/detail_1.png"
+    ]
+  },
+  {
+    "id": "prod-b64860e5",
+    "name": "Beike QZSD 666 - Ballhead Tripod & Monopod",
+    "category": "aksesoris",
+    "normalPrice": 50000,
+    "salePrice": 0,
+    "imageUrl": "assets/beike-qzsd-666-ballhead-tripod-monopod/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/beike-qzsd-666-ballhead-tripod-monopod/detail_1.jpg",
+      "assets/beike-qzsd-666-ballhead-tripod-monopod/detail_2.jpg",
+      "assets/beike-qzsd-666-ballhead-tripod-monopod/detail_3.png"
+    ]
+  },
+  {
+    "id": "prod-d221df9c",
+    "name": "Wireless Clip-On Microphone (2 Mic)",
+    "category": "aksesoris",
+    "normalPrice": 50000,
+    "salePrice": 35000,
+    "imageUrl": "assets/wireless-clip-on-microphone-2-mic/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/wireless-clip-on-microphone-2-mic/detail_1.jpg",
+      "assets/wireless-clip-on-microphone-2-mic/detail_2.jpg",
+      "assets/wireless-clip-on-microphone-2-mic/detail_3.png",
+      "assets/wireless-clip-on-microphone-2-mic/detail_4.jpg"
+    ]
+  },
+  {
+    "id": "prod-11f00b59",
+    "name": "Zhiyun Crane 2S Professional Gimbal",
+    "category": "aksesoris",
+    "normalPrice": 250000,
+    "salePrice": 234500,
+    "imageUrl": "assets/zhiyun-crane-2s-professional-gimbal/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/zhiyun-crane-2s-professional-gimbal/detail_1.jpg",
+      "assets/zhiyun-crane-2s-professional-gimbal/detail_2.jpg",
+      "assets/zhiyun-crane-2s-professional-gimbal/detail_3.jpg",
+      "assets/zhiyun-crane-2s-professional-gimbal/detail_4.jpg",
+      "assets/zhiyun-crane-2s-professional-gimbal/detail_5.png"
+    ]
+  },
+  {
+    "id": "prod-46b4d71e",
+    "name": "Nissin Di600 Speedlite for Canon",
+    "category": "aksesoris",
+    "normalPrice": 75000,
+    "salePrice": 66000,
+    "imageUrl": "assets/nissin-di600-speedlite-for-canon/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/nissin-di600-speedlite-for-canon/detail_1.png"
+    ]
+  },
+  {
+    "id": "prod-b0a5d384",
+    "name": "B-Steady Multi 3-axis Gimbal",
+    "category": "aksesoris",
+    "normalPrice": 100000,
+    "salePrice": 0,
+    "imageUrl": "assets/b-steady-multi-3-axis-gimbal/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/b-steady-multi-3-axis-gimbal/detail_1.png",
+      "assets/b-steady-multi-3-axis-gimbal/detail_2.jpg"
+    ]
+  },
+  {
+    "id": "prod-35e8b149",
+    "name": "Tripod Takara with LED",
+    "category": "aksesoris",
+    "normalPrice": 50000,
+    "salePrice": 45000,
+    "imageUrl": "assets/tripod-takara-with-led/main.jpg",
+    "isPromo": true,
+    "gallery": [
+      "assets/tripod-takara-with-led/detail_1.png"
+    ]
+  },
+  {
+    "id": "prod-3d00c066",
+    "name": "Paket Arung Jeram (Rafting)",
+    "category": "aksesoris",
+    "normalPrice": 400000,
+    "salePrice": 0,
+    "imageUrl": "assets/paket-arung-jeram-rafting/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/paket-arung-jeram-rafting/detail_1.png"
+    ]
+  },
+  {
+    "id": "prod-a5a96430",
+    "name": "Paket Aksesoris Live Streaming",
+    "category": "aksesoris",
+    "normalPrice": 50000,
+    "salePrice": 0,
+    "imageUrl": "assets/paket-aksesoris-live-streaming/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/paket-aksesoris-live-streaming/detail_1.png"
+    ]
+  },
+  {
+    "id": "prod-27679856",
+    "name": "Paket Photobooth Indoor",
+    "category": "aksesoris",
+    "normalPrice": 500000,
+    "salePrice": 0,
+    "imageUrl": "assets/paket-photobooth-indoor/main.jpg",
+    "isPromo": false,
+    "gallery": [
+      "assets/paket-photobooth-indoor/detail_1.jpg",
+      "assets/paket-photobooth-indoor/detail_2.jpg",
+      "assets/paket-photobooth-indoor/detail_3.jpg",
+      "assets/paket-photobooth-indoor/detail_4.png"
+    ]
+  }
+]
