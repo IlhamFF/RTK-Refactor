@@ -87,10 +87,7 @@ function sendText(res, statusCode, message) {
 }
 
 // ── AUTH ─────────────────────────────────────────────────────────────────────
-function apiKeyAuth(req) {
-  const provided = req.headers['x-api-key'] || '';
-  return provided === API_KEY;
-}
+// Note: apiKeyAuth is defined below to support role-based validation.
 
 // ── FILE HELPERS ─────────────────────────────────────────────────────────────
 function ensureDataDir() {

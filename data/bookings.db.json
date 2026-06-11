@@ -2462,12 +2462,12 @@
     },
     "tracking": {
       "deviceId": "simulated-iot",
-      "lastUpdate": "2026-06-10T11:12:51.903Z",
+      "lastUpdate": "2026-06-10T13:20:05.079Z",
       "coords": {
-        "lat": -6.213446741203613,
-        "lng": 106.64802403123605
+        "lat": -6.22868723044676,
+        "lng": 106.65429810475452
       },
-      "address": "Jl. Grand Boulevard, BSD City"
+      "address": "Sekitar AEON Mall BSD City"
     }
   },
   {
@@ -2511,12 +2511,12 @@
     },
     "tracking": {
       "deviceId": "simulated-iot",
-      "lastUpdate": "2026-06-10T11:12:51.903Z",
+      "lastUpdate": "2026-06-10T13:20:05.079Z",
       "coords": {
-        "lat": -6.309528442889518,
-        "lng": 106.63866736171053
+        "lat": -6.304128040853892,
+        "lng": 106.63930766898795
       },
-      "address": "Dekat Scientia Square Park, Serpong"
+      "address": "Dekat Grha Mesra, Kelapa Dua"
     }
   },
   {

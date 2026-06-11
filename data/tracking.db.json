@@ -2,17 +2,17 @@
   {
     "bookingId": "BK_DEMO_ACTV_0",
     "deviceId": "simulated-iot",
-    "lat": -6.213446741203613,
-    "lng": 106.64802403123605,
-    "address": "Jl. Grand Boulevard, BSD City",
-    "timestamp": "2026-06-10T11:12:51.903Z"
+    "lat": -6.22868723044676,
+    "lng": 106.65429810475452,
+    "address": "Sekitar AEON Mall BSD City",
+    "timestamp": "2026-06-10T13:20:05.079Z"
   },
   {
     "bookingId": "BK_DEMO_ACTV_1",
     "deviceId": "simulated-iot",
-    "lat": -6.309528442889518,
-    "lng": 106.63866736171053,
-    "address": "Dekat Scientia Square Park, Serpong",
-    "timestamp": "2026-06-10T11:12:51.903Z"
+    "lat": -6.304128040853892,
+    "lng": 106.63930766898795,
+    "address": "Dekat Grha Mesra, Kelapa Dua",
+    "timestamp": "2026-06-10T13:20:05.079Z"
   }
 ]
