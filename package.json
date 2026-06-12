@@ -2,10 +2,10 @@
   "name": "rtk-rental-prototype",
   "version": "1.0.0",
   "description": "Prototype RTK Rental ERP - Demo-Ready self-contained system",
-  "main": "server.js",
+  "main": "api/server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node api/server.js",
+    "dev": "node api/server.js"
   },
   "keywords": [
     "prototype",

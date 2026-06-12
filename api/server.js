@@ -24,7 +24,7 @@ const { URL } = require('url');
 })();
 
 // ── PATHS & CONFIG ──────────────────────────────────────────────────────────
-const ROOT_DIR          = __dirname;
+const ROOT_DIR          = path.join(__dirname, '..');
 const IS_VERCEL         = !!process.env.VERCEL;
 const DATA_DIR          = IS_VERCEL ? '/tmp/data' : path.join(ROOT_DIR, 'data');
 const PRODUCTS_SEED_FILE = path.join(ROOT_DIR, 'data', 'products.js');
@@ -251,9 +251,18 @@ function parseRequestBody(req) {
 function serveStatic(reqPath, res) {
   let safePath = reqPath === '/' ? '/index.html' : reqPath;
   try { safePath = decodeURIComponent(safePath); } catch (_) {}
-  const absolutePath = path.normalize(path.join(ROOT_DIR, safePath));
+  
+  let absolutePath;
+  if (safePath.startsWith('/data/')) {
+    absolutePath = path.normalize(path.join(DATA_DIR, safePath.slice(6)));
+  } else {
+    absolutePath = path.normalize(path.join(ROOT_DIR, safePath));
+  }
 
-  if (!absolutePath.startsWith(ROOT_DIR + path.sep) && absolutePath !== ROOT_DIR) {
+  // Security check: ensure path is within ROOT_DIR or DATA_DIR
+  const inRootDir = absolutePath.startsWith(ROOT_DIR + path.sep) || absolutePath === ROOT_DIR;
+  const inDataDir = absolutePath.startsWith(DATA_DIR + path.sep) || absolutePath === DATA_DIR;
+  if (!inRootDir && !inDataDir) {
     sendText(res, 403, 'Forbidden');
     return;
   }
