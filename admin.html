@@ -12,9 +12,13 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
+    // Auth guard: allow localhost OR valid admin/staff token in localStorage
     (function () {
       var host = location.hostname;
-      if (host !== 'localhost' && host !== '127.0.0.1') {
+      var isLocal = host === 'localhost' || host === '127.0.0.1';
+      var token = localStorage.getItem('rtk_admin_token');
+      var role  = localStorage.getItem('rtk_admin_role');
+      if (!isLocal && (!token || (role !== 'admin' && role !== 'staff'))) {
         document.write('<style>body{display:none}</style>');
         location.replace('index.html');
       }
