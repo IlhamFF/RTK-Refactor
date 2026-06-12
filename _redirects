@@ -1,2 +1,2 @@
-/api/*  https://rtk-refactor-muhamma-ilhams-projects.vercel.app/api/:splat  200
-/data/uploads/*  https://rtk-refactor-muhamma-ilhams-projects.vercel.app/data/uploads/:splat  200
+/api/*  https://rtk-rental-prototype.vercel.app/api/:splat  200
+/data/uploads/*  https://rtk-rental-prototype.vercel.app/data/uploads/:splat  200
