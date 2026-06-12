@@ -1844,3 +1844,80 @@ footer {
   transform: scale(0.98);
 }
 
+/* ===== ADMIN QUICK LOGIN BUTTONS ===== */
+.admin-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.1rem 0 0.75rem;
+}
+.admin-divider::before,
+.admin-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--slate-200);
+}
+.admin-divider span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--slate-400);
+  white-space: nowrap;
+}
+
+.admin-quick-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.btn-quick-admin,
+.btn-quick-staff {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: inherit;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.btn-quick-admin {
+  background: #1e293b;
+  border-color: #1e293b;
+  color: white;
+}
+.btn-quick-admin:hover {
+  background: #0f172a;
+  border-color: #0f172a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15,23,42,0.3);
+}
+
+.btn-quick-staff {
+  background: white;
+  border-color: var(--slate-300);
+  color: var(--slate-700);
+}
+.btn-quick-staff:hover {
+  border-color: var(--blue-500);
+  color: var(--blue-600);
+  background: var(--blue-50);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.15);
+}
+
+.btn-quick-admin:disabled,
+.btn-quick-staff:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+

@@ -983,6 +983,42 @@ function renderCheckoutSummary() {
     </div>`;
 }
 
+// ===== QUICK LOGIN (Admin/Staff) =====
+async function quickLoginAs(username, password) {
+  const errEl = document.getElementById('cust-login-err');
+  if (errEl) errEl.textContent = '';
+  const btn = document.getElementById(username === 'admin' ? 'quick-login-admin' : 'quick-login-staff');
+  if (btn) { btn.disabled = true; btn.textContent = 'Memproses...'; }
+
+  try {
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      showToast('Login gagal: ' + (data.error || 'Error'));
+      return;
+    }
+    // Store admin/staff token and redirect
+    localStorage.setItem('rtk_admin_token', data.token);
+    localStorage.setItem('rtk_admin_role', data.role);
+    showToast(`Masuk sebagai ${data.role}...`);
+    closeAuthModal();
+    setTimeout(() => { window.location.href = '/admin.html'; }, 500);
+  } catch(err) {
+    showToast('Koneksi gagal');
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = username === 'admin'
+        ? '<i class="fa-solid fa-shield-halved"></i> Login sebagai Admin'
+        : '<i class="fa-solid fa-user-tie"></i> Login sebagai Staff';
+    }
+  }
+}
+
 // Wired up after DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
   // Checkout modal wiring
@@ -1059,6 +1095,10 @@ document.addEventListener('DOMContentLoaded', () => {
       errEl.textContent = 'Koneksi gagal';
     }
   });
+
+  // ===== QUICK LOGIN ADMIN / STAFF =====
+  document.getElementById('quick-login-admin')?.addEventListener('click', () => quickLoginAs('admin', 'rtk2024admin'));
+  document.getElementById('quick-login-staff')?.addEventListener('click', () => quickLoginAs('staff', 'rtk2024staff'));
 
   // Profile modal wire
   document.getElementById('profile-close').addEventListener('click', closeProfileModal);
