@@ -1186,80 +1186,82 @@ ensureDbFiles();
 
 // ── GPS IoT SIMULATION ────────────────────────────────────────────────────────
 // Periodically update active bookings' GPS tracking coordinates to simulate real-time movement
-setInterval(() => {
-  const bookingsFile = path.join(DATA_DIR, 'bookings.db.json');
-  const trackingFile = path.join(DATA_DIR, 'tracking.db.json');
-  if (!fs.existsSync(bookingsFile)) return;
-  
-  try {
-    let bookings = [];
+if (!IS_VERCEL) {
+  setInterval(() => {
+    const bookingsFile = path.join(DATA_DIR, 'bookings.db.json');
+    const trackingFile = path.join(DATA_DIR, 'tracking.db.json');
+    if (!fs.existsSync(bookingsFile)) return;
+    
     try {
-      bookings = JSON.parse(fs.readFileSync(bookingsFile, 'utf-8'));
-    } catch (_) { return; }
-    
-    let tracks = [];
-    if (fs.existsSync(trackingFile)) {
-      try { tracks = JSON.parse(fs.readFileSync(trackingFile, 'utf-8')); } catch (_) {}
-    }
-    
-    let updated = false;
-    bookings.forEach(b => {
-      if ((b.status === 'active' || b.status === 'confirmed') && b.tracking) {
-        // Shift latitude/longitude slightly (simulating movement)
-        const latShift = (Math.random() - 0.5) * 0.0008;
-        const lngShift = (Math.random() - 0.5) * 0.0008;
-        b.tracking.coords.lat += latShift;
-        b.tracking.coords.lng += lngShift;
-        b.tracking.lastUpdate = new Date().toISOString();
-        
-        // Reverse geocoding simulation (random nearby landmarks in Tangerang)
-        const landmarks = [
-          'Dekat Universitas Pelita Harapan, Karawaci',
-          'Sekitar Supermal Karawaci',
-          'Jl. Boulevard Gading Serpong',
-          'Dekat Summarecon Mall Serpong',
-          'Sekitar AEON Mall BSD City',
-          'Jl. Grand Boulevard, BSD City',
-          'Dekat Grha Mesra, Kelapa Dua',
-          'Dekat Summarecon Mall Serpong',
-          'Dekat Scientia Square Park, Serpong'
-        ];
-        
-        // 15% chance to update address text or if it doesn't exist
-        if (Math.random() < 0.15 || !b.tracking.address) {
-          b.tracking.address = landmarks[Math.floor(Math.random() * landmarks.length)];
-        }
-        
-        // Update tracking.db
-        const entry = {
-          bookingId: b.id,
-          deviceId: b.tracking.deviceId || 'simulated-iot',
-          lat: b.tracking.coords.lat,
-          lng: b.tracking.coords.lng,
-          address: b.tracking.address,
-          timestamp: b.tracking.lastUpdate
-        };
-        
-        const idx = tracks.findIndex(t => t.bookingId === b.id);
-        if (idx !== -1) tracks[idx] = entry;
-        else tracks.push(entry);
-        
-        updated = true;
+      let bookings = [];
+      try {
+        bookings = JSON.parse(fs.readFileSync(bookingsFile, 'utf-8'));
+      } catch (_) { return; }
+      
+      let tracks = [];
+      if (fs.existsSync(trackingFile)) {
+        try { tracks = JSON.parse(fs.readFileSync(trackingFile, 'utf-8')); } catch (_) {}
       }
-    });
-    
-    if (updated) {
-      fs.writeFileSync(bookingsFile, JSON.stringify(bookings, null, 2));
-      fs.writeFileSync(trackingFile, JSON.stringify(tracks, null, 2));
-      console.log('[GPS Simulation] Updated active IoT coordinates.');
+      
+      let updated = false;
+      bookings.forEach(b => {
+        if ((b.status === 'active' || b.status === 'confirmed') && b.tracking) {
+          // Shift latitude/longitude slightly (simulating movement)
+          const latShift = (Math.random() - 0.5) * 0.0008;
+          const lngShift = (Math.random() - 0.5) * 0.0008;
+          b.tracking.coords.lat += latShift;
+          b.tracking.coords.lng += lngShift;
+          b.tracking.lastUpdate = new Date().toISOString();
+          
+          // Reverse geocoding simulation (random nearby landmarks in Tangerang)
+          const landmarks = [
+            'Dekat Universitas Pelita Harapan, Karawaci',
+            'Sekitar Supermal Karawaci',
+            'Jl. Boulevard Gading Serpong',
+            'Dekat Summarecon Mall Serpong',
+            'Sekitar AEON Mall BSD City',
+            'Jl. Grand Boulevard, BSD City',
+            'Dekat Grha Mesra, Kelapa Dua',
+            'Dekat Summarecon Mall Serpong',
+            'Dekat Scientia Square Park, Serpong'
+          ];
+          
+          // 15% chance to update address text or if it doesn't exist
+          if (Math.random() < 0.15 || !b.tracking.address) {
+            b.tracking.address = landmarks[Math.floor(Math.random() * landmarks.length)];
+          }
+          
+          // Update tracking.db
+          const entry = {
+            bookingId: b.id,
+            deviceId: b.tracking.deviceId || 'simulated-iot',
+            lat: b.tracking.coords.lat,
+            lng: b.tracking.coords.lng,
+            address: b.tracking.address,
+            timestamp: b.tracking.lastUpdate
+          };
+          
+          const idx = tracks.findIndex(t => t.bookingId === b.id);
+          if (idx !== -1) tracks[idx] = entry;
+          else tracks.push(entry);
+          
+          updated = true;
+        }
+      });
+      
+      if (updated) {
+        fs.writeFileSync(bookingsFile, JSON.stringify(bookings, null, 2));
+        fs.writeFileSync(trackingFile, JSON.stringify(tracks, null, 2));
+        console.log('[GPS Simulation] Updated active IoT coordinates.');
+      }
+    } catch (err) {
+      console.error('[GPS Simulation] Error:', err.message);
     }
-  } catch (err) {
-    console.error('[GPS Simulation] Error:', err.message);
-  }
-}, 8000); // every 8 seconds
+  }, 8000); // every 8 seconds
+}
 
 // ── HTTP SERVER ───────────────────────────────────────────────────────────────
-const server = http.createServer(async (req, res) => {
+async function requestListener(req, res) {
   // Parse URL safely
   let url;
   try {
@@ -1293,22 +1295,30 @@ const server = http.createServer(async (req, res) => {
   }
 
   serveStatic(pathname, res);
-});
+}
 
-server.on('error', err => {
-  if (err.code === 'EADDRINUSE') {
-    console.error(`[server] Port ${PORT} is already in use. Kill the existing process or set PORT env var.`);
-    process.exit(1);
-  }
-  throw err;
-});
+// Export request handler for Vercel Serverless Function compatibility
+module.exports = requestListener;
 
-server.listen(PORT, () => {
-  console.log('');
-  console.log('  ┌────────────────────────────────────────┐');
-  console.log(`  │  RTK Rental Server v2.0                │`);
-  console.log(`  │  http://localhost:${PORT}                   │`);
-  console.log(`  │  Admin: http://localhost:${PORT}/admin.html │`);
-  console.log('  └────────────────────────────────────────┘');
-  console.log('');
-});
+// Only listen locally if run directly
+if (require.main === module) {
+  const server = http.createServer(requestListener);
+
+  server.on('error', err => {
+    if (err.code === 'EADDRINUSE') {
+      console.error(`[server] Port ${PORT} is already in use. Kill the existing process or set PORT env var.`);
+      process.exit(1);
+    }
+    throw err;
+  });
+
+  server.listen(PORT, () => {
+    console.log('');
+    console.log('  ┌────────────────────────────────────────┐');
+    console.log(`  │  RTK Rental Server v2.0                │`);
+    console.log(`  │  http://localhost:${PORT}                   │`);
+    console.log(`  │  Admin: http://localhost:${PORT}/admin.html │`);
+    console.log('  └────────────────────────────────────────┘');
+    console.log('');
+  });
+}
