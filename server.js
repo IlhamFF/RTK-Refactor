@@ -25,8 +25,9 @@ const { URL } = require('url');
 
 // ── PATHS & CONFIG ──────────────────────────────────────────────────────────
 const ROOT_DIR          = __dirname;
-const DATA_DIR          = path.join(ROOT_DIR, 'data');
-const PRODUCTS_SEED_FILE = path.join(DATA_DIR, 'products.js');
+const IS_VERCEL         = !!process.env.VERCEL;
+const DATA_DIR          = IS_VERCEL ? '/tmp/data' : path.join(ROOT_DIR, 'data');
+const PRODUCTS_SEED_FILE = path.join(ROOT_DIR, 'data', 'products.js');
 const PRODUCTS_DB_FILE  = path.join(DATA_DIR, 'products.db.json');
 const BOOKINGS_DB_FILE  = path.join(DATA_DIR, 'bookings.db.json');
 const BLACKLIST_DB_FILE = path.join(DATA_DIR, 'blacklist.db.json');
@@ -160,6 +161,29 @@ function extractSeedProducts() {
 // ── DB INITIALISATION ────────────────────────────────────────────────────────
 function ensureDbFiles() {
   ensureDataDir();
+
+  if (IS_VERCEL) {
+    const filesToCopy = [
+      'products.db.json',
+      'bookings.db.json',
+      'blacklist.db.json',
+      'tracking.db.json',
+      'users.db.json',
+      'customers.db.json'
+    ];
+    for (const file of filesToCopy) {
+      const src = path.join(ROOT_DIR, 'data', file);
+      const dest = path.join(DATA_DIR, file);
+      if (fs.existsSync(src) && !fs.existsSync(dest)) {
+        try {
+          fs.copyFileSync(src, dest);
+          console.log(`[init] Copied ${file} to /tmp/data`);
+        } catch (err) {
+          console.error(`[init] Failed to copy ${file}:`, err.message);
+        }
+      }
+    }
+  }
 
   if (!fs.existsSync(PRODUCTS_DB_FILE) || fs.readFileSync(PRODUCTS_DB_FILE, 'utf-8').trim() === '[]' || fs.readFileSync(PRODUCTS_DB_FILE, 'utf-8').trim() === '') {
     const seed = extractSeedProducts();
@@ -1235,7 +1259,10 @@ const server = http.createServer(async (req, res) => {
     return sendText(res, 400, 'Bad Request');
   }
 
-  const pathname = url.pathname;
+  let pathname = url.pathname;
+  if (url.searchParams.has('_originalPath')) {
+    pathname = url.searchParams.get('_originalPath');
+  }
   const method   = req.method.toUpperCase();
 
   // CORS preflight shortcut
